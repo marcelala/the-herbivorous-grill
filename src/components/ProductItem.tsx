@@ -1,33 +1,31 @@
-
 // Project files
 import iProduct from "../types/iProduct";
 
 // Interface
 interface iProps {
-    item: iProduct;
-    onDelete: Function;
-    onUpdate: Function;
+  item: iProduct;
+  onDelete: Function;
+  onUpdate: Function;
 }
 
 export default function ProductItem({ item, onDelete, onUpdate }: iProps) {
-    const { productId, productTitle, productDescription, productPrice } = item;
+  const { id, product_title, product_price } = item;
 
-    // Methods
-    function onUpdateButton() {
-        const editedProduct = {
-            productId: productId,
-            productTitle: productTitle,
-            productDescription: productDescription,
-            productPrice: productPrice
-        };
-        onUpdate(productId, editedProduct);
-    }
-    return (
-        <li>
-            <button onClick={() => onDelete(productId)}>Delete this</button>
-            <button onClick={() => onUpdateButton()}>Update this</button>
-            <b>{productTitle}:</b>
-            {productDescription}
-        </li>
-    );
+  // Methods
+  function onUpdateButton() {
+    const editedProduct = {
+      id: id,
+      productTitle: product_title,
+      productPrice: product_price,
+    };
+    onUpdate(id, editedProduct);
+  }
+  return (
+    <li>
+      <button onClick={() => onDelete(id)}>Delete this</button>
+      <button onClick={() => onUpdateButton()}>Update this</button>
+      <b>{product_title}:</b>
+      {product_price}
+    </li>
+  );
 }
