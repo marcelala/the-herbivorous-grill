@@ -8,9 +8,7 @@ import {
     deleteDocument,
     updateDocument,
 } from "./scripts/fireStore";
-
 import './App.css';
-import firebase from "firebase/compat";
 import iCategory from "./types/iCategory";
 import CategoryItem from "./components/CategoryItem";
 

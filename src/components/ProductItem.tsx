@@ -24,8 +24,8 @@ export default function ProductItem({ item, onDelete, onUpdate }: iProps) {
     }
     return (
         <li>
-            <button onClick={() => onDelete(productId)}>Delete me</button>
-            <button onClick={() => onUpdateButton()}>Update me</button>
+            <button onClick={() => onDelete(productId)}>Delete this</button>
+            <button onClick={() => onUpdateButton()}>Update this</button>
             <b>{productTitle}:</b>
             {productDescription}
         </li>

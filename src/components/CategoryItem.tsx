@@ -23,8 +23,8 @@ export default function CategoryItem({ item, onDelete, onUpdate }: iProps) {
     }
     return (
         <li>
-            <button onClick={() => onDelete(categoryId)}>Delete me</button>
-            <button onClick={() => onUpdateButton()}>Update me</button>
+            <button onClick={() => onDelete(categoryId)}>Delete it</button>
+            <button onClick={() => onUpdateButton()}>Update it</button>
             <b>{categoryTitle}:</b>
             {categoryDescription}
         </li>
