@@ -4,6 +4,6 @@ export default interface iCategory {
   id: string;
   category_title: string;
   category_description: string;
-  image_url: string;
+  category_image: string;
   products: iProduct[];
 }

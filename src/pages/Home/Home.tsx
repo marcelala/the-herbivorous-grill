@@ -1,29 +1,21 @@
 import iCategory from "../../types/iCategory";
 import CategoryItem from "../../components/CategoryItem";
 import { useMenu } from "../../state/MenuStateProvider";
+import heroImg from "../../assets/images/fire.png";
 import logo from "../../assets/images/logo.svg";
 
 // @ts-ignore
-export default function Home({ onDelete, onUpdate }) {
-  // @ts-ignore
-  const { menu } = useMenu();
-
-  const CategoryItems = menu.map((item: iCategory) => (
-    <CategoryItem
-      key={item.id}
-      item={item}
-      onDelete={onDelete}
-      onUpdate={onUpdate}
-    />
-  ));
+export default function Home() {
   return (
     <section id="home">
-      <img src={logo} alt="icon of a small plant in a pot" />
-      <h1 className=" brand">The Herbivorous Grill</h1>
-      <div className=" container">
-        <h2>Peace begins in your plate</h2>
+      <img src={heroImg} alt={"fire"} className="hero-background" />
+      <div className="brand">
+        <img src={logo} alt="icon of a small plant in a pot" />
+        <span className=" brand-name">The Herbivorous Grill</span>
       </div>
-      {CategoryItems}
+      <div className=" container">
+        <h3>Peace begins in your plate</h3>
+      </div>
     </section>
   );
 }

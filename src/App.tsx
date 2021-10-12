@@ -7,6 +7,8 @@ import { useMenu } from "./state/MenuStateProvider";
 import { firebaseInstance } from "./scripts/firebase";
 import { deleteDocument, updateDocument } from "./scripts/fireStore";
 import Home from "./pages/Home/Home";
+import Navigation from "./components/Navigation";
+import { Menu } from "./pages/Menu/Menu";
 
 function HerbivorousGrill() {
   // Global state
@@ -62,8 +64,10 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
   // Component
   const Browser = (
     <BrowserRouter>
+      <Navigation />
       <Switch>
         <Route component={Home} exact path="/" />
+        <Route component={Menu} path="/menu" />
       </Switch>
     </BrowserRouter>
   );
@@ -71,7 +75,7 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
   return (
     <div className="App">
       {status === 0 && <p>Loading ⏱</p>}
-      {status === 1 && <ul>{Browser}</ul>}
+      {status === 1 && <>{Browser}</>}
       {status === 2 && <p>Error 🚨</p>}
     </div>
   );

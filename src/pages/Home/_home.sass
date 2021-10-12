@@ -1,32 +1,41 @@
 #home
   margin: 0 auto
-  background-color: $light
   height: 95vh
+  display: grid
+  row-gap: $space-medium
+
+  .hero-background
+    position: absolute
+    height: 95vh
+    width: 100%
+    object-fit: cover
+    opacity: .5
 
   .brand
     max-width: 100%
-  .hero
+    width: 7rem
+    height: 7rem
+    position: relative
     display: flex
     flex-direction: column
-    justify-content: flex-end
-    align-content: flex-end
-    text-align: center
-    padding: $space-large
-    max-width: 900px
-    margin: 0 auto
-
-    h1
-      margin: 0 auto
-      font-weight: bold
-      font-family: $font-secondary
-      font-size: 4rem
-
+    background-color: transparent
+    justify-content: center
+    align-items: center
+    border-radius: 100%
+    border: 3px solid $white
+    margin: $space-medium auto
+    padding: 0
     img
-      margin: $space-medium auto
-
-    p
-      color: $secondary
-      padding: $space-small
-
-    .btn-primary
-      margin: $space-medium auto
+      position: relative
+      width: 3rem
+      max-width: 4rem
+      height: auto
+      padding: $space-x-small
+    &-name
+      margin: 0
+      width: 80%
+      height: auto
+      font-weight: 500
+      color: $white
+      text-align: center
+      font-size: .8rem

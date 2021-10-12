@@ -11,12 +11,10 @@ import { firebaseInstance } from "../scripts/firebase";
 // Interface
 interface iProps {
   item: iCategory;
-  onDelete: Function;
-  onUpdate: Function;
 }
 
-export default function CategoryItem({ item, onDelete, onUpdate }: iProps) {
-  const { id, category_title, category_description, image_url } = item;
+export default function CategoryItem({ item }: iProps) {
+  const { id, category_title, category_description, category_image } = item;
   const [productList, setProductList] = useState(Array<iProduct>());
   const [status, setStatus] = useState(0); // 0: loading, 1: loaded, 2: error
   // Properties
@@ -36,25 +34,21 @@ export default function CategoryItem({ item, onDelete, onUpdate }: iProps) {
     const editedCategory = {
       category_title: category_title,
       category_description: category_description,
-      image_url: image_url,
+      category_image: category_image,
       products: productList,
     };
-    onUpdate(id, editedCategory);
+    //onUpdate(id, editedCategory);
   }
 
   // Components
   const ProductList = productList.map((product) => (
-    <ProductItem
-      key={product.id}
-      item={product}
-      onDelete={onDelete}
-      onUpdate={onUpdate}
-    />
+    <ProductItem key={product.id} item={product} />
   ));
   return (
-    <li>
-      <button onClick={() => onDelete(id)}>Delete it</button>
-      <button onClick={() => onUpdateButton()}>Update it</button>
+    <li className="category-item">
+      {/*<button onClick={() => onDelete(id)}>Delete it</button>
+      <button onClick={() => onUpdateButton()}>Update it</button>*/}
+      <img src={category_image} alt="delicious foods and beautiful drinks" />
       <b>{category_title}:</b>
       {category_description}
       {status === 0 && <p>Loading ⏱</p>}
