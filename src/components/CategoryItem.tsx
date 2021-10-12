@@ -26,7 +26,7 @@ export default function CategoryItem({ item, onDelete, onUpdate }: iProps) {
     const collection = await getCollection(database, `menu/${id}/products/`);
     setProductList(collection as unknown as iProduct[]);
     setStatus(1);
-  }, [database]);
+  }, [id, database]);
 
   useEffect(() => {
     productsCallback();
