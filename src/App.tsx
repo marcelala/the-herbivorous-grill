@@ -1,8 +1,11 @@
 // NPM packages
+// @ts-ignore
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
 import { getFirestore } from "firebase/firestore/lite";
 // Project files
-import firebaseInstance from "./scripts/firebase";
+import { useMenu } from "./state/MenuStateProvider";
+import { firebaseInstance } from "./scripts/firebase";
 import {
   getCollection,
   deleteDocument,
@@ -11,11 +14,15 @@ import {
 import "./App.css";
 import iCategory from "./types/iCategory";
 import CategoryItem from "./components/CategoryItem";
+import Home from "./pages/Home/Home";
 
 function HerbivorousGrill() {
+  // Global state
+  // @ts-ignore
+  const { menu, status } = useMenu();
   // Local state
-  const [menu, setMenu] = useState(Array<iCategory>());
-  const [status, setStatus] = useState(0); // 0: loading, 1: loaded, 2: error
+  //const [menu, setMenu] = useState(Array<iCategory>());
+  //const [status, setStatus] = useState(0); // 0: loading, 1: loaded, 2: error
   // Properties
   const database = getFirestore(firebaseInstance);
 
@@ -48,18 +55,18 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
     updateDocument(database, "menu", id, editedCategory);
   }
 
-  const menuCallback = useCallback(async () => {
+  /* const menuCallback = useCallback(async () => {
     const collection = await getCollection(database, "menu");
     setMenu(collection as unknown as iCategory[]);
     setStatus(1);
-  }, [database]);
+  }, [database]);*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     menuCallback();
-  }, [menuCallback]);
+  }, [menuCallback]);*/
 
   // Components
-  const CategoryItems = menu.map((item) => (
+  const CategoryItems = menu.map((item: iCategory) => (
     <CategoryItem
       key={item.id}
       item={item}
@@ -83,10 +90,19 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
     categories: ["Burgers", "Sides", "Salads", "Drinks", "Desserts"],
   };
 
+  // Component
+  const Browser = (
+    <BrowserRouter>
+      <Switch>
+        <Route component={Home} exact path="/" />
+      </Switch>
+    </BrowserRouter>
+  );
+
   return (
     <div className="App">
       {status === 0 && <p>Loading ⏱</p>}
-      {status === 1 && <ul>{CategoryItems}</ul>}
+      {status === 1 && <ul>{Browser}</ul>}
       {status === 2 && <p>Error 🚨</p>}
     </div>
   );

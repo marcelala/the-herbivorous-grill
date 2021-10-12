@@ -6,7 +6,7 @@ import iProduct from "../types/iProduct";
 import ProductItem from "./ProductItem";
 import { getCollection } from "../scripts/fireStore";
 import { getFirestore } from "firebase/firestore/lite";
-import firebaseInstance from "../scripts/firebase";
+import { firebaseInstance } from "../scripts/firebase";
 
 // Interface
 interface iProps {
@@ -23,7 +23,7 @@ export default function CategoryItem({ item, onDelete, onUpdate }: iProps) {
   const database = getFirestore(firebaseInstance);
   // Methods
   const productsCallback = useCallback(async () => {
-    const collection = await getCollection(database, `menu/${id}/products/`);
+    const collection = await getCollection(`menu/${id}/products/`);
     setProductList(collection as unknown as iProduct[]);
     setStatus(1);
   }, [id, database]);

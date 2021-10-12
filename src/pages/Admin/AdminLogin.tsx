@@ -1,4 +1,4 @@
 import React from "react";
-export function Category() {
+export function AdminLogin() {
   return null;
 }
