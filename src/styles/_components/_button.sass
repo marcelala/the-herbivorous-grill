@@ -1,0 +1,35 @@
+//noinspection SassScssResolvedByNameOnly
+.btn
+  cursor: pointer
+  font-size: 1rem
+  font-family: $font
+  text-decoration: none
+  border: 0
+  font-weight: 600
+  text-align: center
+  color: white
+  text-transform: capitalize
+  padding: $space-small $space-medium
+  max-width: 9.5rem
+  @include hover-lift
+  border-radius: 1.1rem
+
+  &-primary
+    background-color: $primary
+    color: $white
+
+  &-ghost
+    background-color: $white
+    color: $dark
+    padding: $space-x-small
+    font-size: 1rem
+    font-weight: 400
+    align-items: center
+    display: inline-flex
+    flex-direction: row
+
+  &-language
+    background-color: transparent
+    font-size: 0.8rem
+    border: 0.5px solid $white
+    padding: 0.25rem $space-x-small

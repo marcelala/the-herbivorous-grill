@@ -1,0 +1,78 @@
+@mixin after($content: "", $pos: absolute)
+  position: relative
+  &::after
+    content: $content
+    position: $pos
+    @content
+
+
+@mixin hover-lift()
+  //box-shadow: 0em 0.3em 0.5em 0em rgba(black, 0.2)
+  transition: transform 250ms ease-in-out
+  @include after()
+    //box-shadow: 0em 0em 1.25em 0em rgba(black, 0.4)
+    transition: transform 250ms ease-in-out
+    opacity: 0
+
+  &:hover,
+  &:focus
+    transform: scale(1.1)
+
+    &::after
+      opacity: 1
+
+@mixin keyframes($animationName)
+  @-webkit-keyframes #{$animationName}
+    @content
+  @-moz-keyframes #{$animationName}
+    @content
+  @-o-keyframes #{$animationName}
+    @content
+  @keyframes #{$animationName}
+    @content
+
+@mixin animate($name, $duration, $iteration, $direction)
+  -webkit-animation-duration: $duration
+  -moz-animation-duration: $duration
+  -o-animation-duration: $duration
+  animation-duration: $duration
+  -webkit-animation-iteration-count: $iteration
+  -moz-animation-iteration-count: $iteration
+  -o-animation-iteration-count: $iteration
+  animation-iteration-count: $iteration
+  -webkit-animation-name: $name
+  -moz-animation-name: $name
+  -o-animation-name: $name
+  animation-name: $name
+  -webkit-animation-direction: $direction
+  -moz-animation-direction: $direction
+  -o-animation-direction: $direction
+  animation-direction: $direction
+@include keyframes(spin)
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@mixin spin
+  @include animate(spin, 0.6s, infinite, linear)
+
+@mixin respond($breakpoint)
+  @if $breakpoint== phablet
+    @media only screen and (min-width: $media-phablet)
+      @content
+
+
+  @if $breakpoint== tablet
+    @media only screen and (min-width: $media-tablet)
+      @content
+
+
+  @if $breakpoint== desktop
+    @media only screen and (min-width: $media-desktop)
+      @content
+
+
+  @if $breakpoint== ultra-wide
+    @media only screen and (min-width: $media-ultra-wide)
+      @content

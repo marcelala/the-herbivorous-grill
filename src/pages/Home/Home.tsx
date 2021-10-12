@@ -1,6 +1,7 @@
 import iCategory from "../../types/iCategory";
 import CategoryItem from "../../components/CategoryItem";
 import { useMenu } from "../../state/MenuStateProvider";
+import logo from "../../assets/images/logo.svg";
 
 // @ts-ignore
 export default function Home({ onDelete, onUpdate }) {
@@ -15,5 +16,14 @@ export default function Home({ onDelete, onUpdate }) {
       onUpdate={onUpdate}
     />
   ));
-  return <section id="home">{CategoryItems}</section>;
+  return (
+    <section id="home">
+      <img src={logo} alt="icon of a small plant in a pot" />
+      <h1 className=" brand">The Herbivorous Grill</h1>
+      <div className=" container">
+        <h2>Peace begins in your plate</h2>
+      </div>
+      {CategoryItems}
+    </section>
+  );
 }

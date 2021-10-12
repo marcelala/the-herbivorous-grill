@@ -1,28 +1,17 @@
 // NPM packages
 // @ts-ignore
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react";
 import { getFirestore } from "firebase/firestore/lite";
 // Project files
 import { useMenu } from "./state/MenuStateProvider";
 import { firebaseInstance } from "./scripts/firebase";
-import {
-  getCollection,
-  deleteDocument,
-  updateDocument,
-} from "./scripts/fireStore";
-import "./App.css";
-import iCategory from "./types/iCategory";
-import CategoryItem from "./components/CategoryItem";
+import { deleteDocument, updateDocument } from "./scripts/fireStore";
 import Home from "./pages/Home/Home";
 
 function HerbivorousGrill() {
   // Global state
   // @ts-ignore
-  const { menu, status } = useMenu();
-  // Local state
-  //const [menu, setMenu] = useState(Array<iCategory>());
-  //const [status, setStatus] = useState(0); // 0: loading, 1: loaded, 2: error
+  const { status } = useMenu();
   // Properties
   const database = getFirestore(firebaseInstance);
 
@@ -54,26 +43,6 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
   function onUpdate(id: string, editedCategory: object) {
     updateDocument(database, "menu", id, editedCategory);
   }
-
-  /* const menuCallback = useCallback(async () => {
-    const collection = await getCollection(database, "menu");
-    setMenu(collection as unknown as iCategory[]);
-    setStatus(1);
-  }, [database]);*/
-
-  /*useEffect(() => {
-    menuCallback();
-  }, [menuCallback]);*/
-
-  // Components
-  const CategoryItems = menu.map((item: iCategory) => (
-    <CategoryItem
-      key={item.id}
-      item={item}
-      onDelete={onDelete}
-      onUpdate={onUpdate}
-    />
-  ));
 
   HerbivorousGrill.prototype.data = {
     words: [
