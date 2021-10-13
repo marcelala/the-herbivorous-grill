@@ -13,20 +13,8 @@
     max-width: 1024px
     padding: 0
 
-  .text-box-section
-    padding: $space-large
-    h1
-      color: $primary
-    p
-      color: $white
-
   ul
-    display: grid
-    row-gap: $space-medium
-    column-gap: $space-large
-    padding: $space-large
-    justify-content: center
-    align-items: center
+    @include cardGrid
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
 
 

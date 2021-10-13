@@ -1,5 +1,6 @@
 // Project files
 import iProduct from "../types/iProduct";
+import Button from "./Button";
 
 // Interface
 interface iProps {
@@ -21,11 +22,15 @@ export default function ProductItem({ item }: iProps) {
   }*/
   }
   return (
-    <li>
+    <li className="product-item">
+      <img src="" alt="delicious foods and beautiful drinks" />
       {/*} <button onClick={() => onDelete(id)}>Delete this</button>
       <button onClick={() => onUpdateButton()}>Update this</button>*/}
       <b>{product_title}:</b>
       <p>{product_price}</p>
+      <Button theme={"secondary"} onClick={() => console.log(product_title)}>
+        View
+      </Button>
     </li>
   );
 }

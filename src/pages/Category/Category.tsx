@@ -6,6 +6,7 @@ import iProduct from "../../types/iProduct";
 import ProductItem from "../../components/ProductItem";
 import { useProducts } from "../../state/ProductStateProvider";
 import { getCollection } from "../../scripts/fireStore";
+import menuImg from "../../assets/images/menuImg.png";
 
 export function Category() {
   // @ts-ignore
@@ -52,11 +53,18 @@ export function Category() {
   ));
 
   return (
-    <section id="products">
-      <p>Category page </p>
+    <section id="category">
+      <img
+        src={selectedCategory.category_image}
+        alt={`yummy ${selectedCategory.category_title}`}
+      />
+      <div className="text-box-section">
+        <h1>{selectedCategory.category_title}</h1>
+        <p> {selectedCategory.category_description}</p>
+      </div>
       <div>
         {status === 0 && <p>Loading ⏱</p>}
-        {status === 1 && <ul>{ProductItems}</ul>}
+        {status === 1 && <ul className="product-cards">{ProductItems}</ul>}
         {status === 2 && <p>Error 🚨</p>}
       </div>
     </section>
