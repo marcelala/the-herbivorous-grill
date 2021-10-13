@@ -16,6 +16,10 @@ export function Menu() {
   return (
     <section id="menu">
       <img src={menuImg} alt="" />
+      <div className="text-box-section">
+        <h1>Menu</h1>
+        <p> Live and let live</p>
+      </div>
       <ul>{CategoryItems}</ul>
     </section>
   );

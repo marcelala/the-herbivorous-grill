@@ -101,7 +101,7 @@ h1 {
   font-size: 2.2rem;
   line-height: 2.56rem;
   font-family: "Alegreya Sans SC", sans-serif;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 h2 {
@@ -180,15 +180,15 @@ p {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
   border: 0;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
+  background-color: #EA7C69;
   color: white;
-  text-transform: capitalize;
-  padding: 1rem 1.5rem;
-  max-width: 9.5rem;
+  padding: 0.5rem 1rem;
+  max-width: 10rem;
   transition: transform 250ms ease-in-out;
   position: relative;
-  border-radius: 1.1rem;
+  border-radius: 1rem;
 }
 .btn::after {
   content: "";
@@ -205,6 +205,11 @@ p {
 .btn-primary {
   background-color: #EA7C69;
   color: #FFFFFF;
+}
+.btn-secondary {
+  background-color: transparent;
+  color: #EA7C69;
+  border: 0.5px solid #EA7C69;
 }
 .btn-ghost {
   background-color: #FFFFFF;
@@ -296,9 +301,10 @@ footer .content ul li {
   border-radius: 16px;
   color: white;
   width: 17rem;
-  height: auto;
+  height: 20rem;
   max-height: 100vh;
   padding: 1.5rem;
+  margin: 0 auto;
 }
 .category-item .text-box {
   display: grid;
@@ -359,6 +365,8 @@ footer .content ul li {
 
 #menu {
   background-color: #252836;
+  display: grid;
+  justify-content: center;
 }
 #menu img {
   width: 100%;
@@ -370,10 +378,23 @@ footer .content ul li {
   max-width: 1024px;
   padding: 0;
 }
+#menu .text-box-section {
+  padding: 2rem;
+}
+#menu .text-box-section h1 {
+  color: #EA7C69;
+}
+#menu .text-box-section p {
+  color: #FFFFFF;
+}
 #menu ul {
   display: grid;
   row-gap: 1.5rem;
-  column-gap: 1.5rem;
+  column-gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 /*# sourceMappingURL=index.css.map */
