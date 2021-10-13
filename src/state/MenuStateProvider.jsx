@@ -16,7 +16,7 @@ import MenuReducer from "./MenuReducer";
 const MenuContext = createContext(null);
 export function MenuStateProvider({ children }) {
   // Local state
-  const [menu, dispatch] = useReducer(MenuReducer, []);
+  const [menu, menuDispatch] = useReducer(MenuReducer, []);
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
 
   // Properties
@@ -27,7 +27,7 @@ export function MenuStateProvider({ children }) {
     try {
       const menu = await getCollection(path);
       console.log("menu", menu);
-      dispatch({ type: "SET_MENU", payload: menu });
+      menuDispatch({ type: "SET_MENU", payload: menu });
       setStatus(1);
     } catch {
       setStatus(2);
@@ -37,7 +37,7 @@ export function MenuStateProvider({ children }) {
   useEffect(() => fetchData(PATH), [fetchData]);
 
   return (
-    <MenuContext.Provider value={{ menu, dispatch, status }}>
+    <MenuContext.Provider value={{ menu, dispatch: menuDispatch, status }}>
       {children}
     </MenuContext.Provider>
   );

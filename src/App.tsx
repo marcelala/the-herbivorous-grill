@@ -15,7 +15,7 @@ import Home from "./pages/Home/Home";
 import { Menu } from "./pages/Menu/Menu";
 import { Category } from "./pages/Category/Category";
 import { Product } from "./pages/Product/Product";
-import { Contact } from "./pages/Contact/Contact";
+import Contact from "./pages/Contact/Contact";
 
 function HerbivorousGrill() {
   // Global state
@@ -23,26 +23,6 @@ function HerbivorousGrill() {
   const { status } = useMenu();
   // Properties
   const database = getFirestore(firebaseInstance);
-
-  /*
-  firebase.firestore().enablePersistence()
-      .then(function() {
-        return firebase.auth().signInAnonymously();
-      });
-}
-
-
-HerbivorousGrill.prototype.getCleanPath = function(dirtyPath:string) {
-    if (dirtyPath.startsWith('/index.html')) {
-        return dirtyPath.split('/').slice(1).join('/');
-    } else {
-        return dirtyPath;
-    }
-};
-
-HerbivorousGrill.prototype.getFirebaseConfig = function() {
-    return firebase.app().options;
-};*/
 
   // Methods
   function onDelete(id: string) {
@@ -53,27 +33,13 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
     updateDocument(database, "menu", id, editedCategory);
   }
 
-  HerbivorousGrill.prototype.data = {
-    words: [
-      "Bar",
-      "Fire",
-      "Grill",
-      "Drive Thru",
-      "Place",
-      "Best",
-      "Spot",
-      "Prime",
-      "Eatin'",
-    ],
-    categories: ["Burgers", "Sides", "Salads", "Drinks", "Desserts"],
-  };
-
   // Component
   const Browser = (
     <BrowserRouter>
       <Navigation />
       <Switch>
         <Route component={Home} exact path="/" />
+        <Route component={Contact} path="/contact" />
         <Route component={Menu} exact path="/menu" />
         <ProductStateProvider>
           <Route
@@ -85,7 +51,6 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
             path="/menu/:category_title/:category_id/:product_title/:product_id"
           />
         </ProductStateProvider>
-        <Route component={Contact} path="/contact" />
       </Switch>
     </BrowserRouter>
   );

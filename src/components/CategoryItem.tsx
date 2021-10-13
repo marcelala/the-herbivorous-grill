@@ -27,7 +27,7 @@ export default function CategoryItem({ item }: iProps) {
       <button onClick={() => onUpdateButton()}>Update it</button>*/}
       <img src={imageUrl} alt="delicious foods and beautiful drinks" />
       <div className="text-box">
-        <h1>{category_title}:</h1>
+        <h1>{category_title}</h1>
         <p>{category_description}</p>
       </div>
       <Button theme={"secondary"} onClick={() => console.log(category_title)}>

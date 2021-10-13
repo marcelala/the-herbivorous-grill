@@ -19,7 +19,7 @@ export default function useMapBox({ center, zoom = 13, onInit }) {
     if (ref.current && !map) {
       const map = new mapboxgl.Map({
         container: ref.current,
-        style: "mapbox://styles/mapbox/dark-v10",
+        style: "mapbox://styles/mapbox/light-v10",
         center,
         zoom,
       });
@@ -27,7 +27,7 @@ export default function useMapBox({ center, zoom = 13, onInit }) {
       const popup = new mapboxgl.Popup({ offset: 25 }).setText(
         `Pick up your package here! Coordinates(lng,lat): ${center}`
       );
-      const marker = new mapboxgl.Marker({ color: "#F8AE3A" })
+      const marker = new mapboxgl.Marker({ color: "#EA7C69" })
         .setLngLat(center)
         .setPopup(popup)
         .addTo(map);
