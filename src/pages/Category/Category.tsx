@@ -39,7 +39,7 @@ export function Category() {
   );
 
   // @ts-ignore
-  useEffect(() => fetchData(path), [fetchData, selectedCategory]);
+  useEffect(() => fetchData(path), [fetchData, path]);
 
   // Methods
   const ProductItems = products.map((item: iProduct) => (

@@ -1,10 +1,6 @@
-import iCategory from "../../types/iCategory";
-import CategoryItem from "../../components/CategoryItem";
-import { useMenu } from "../../state/MenuStateProvider";
 import heroImg from "../../assets/images/fire.png";
 import logo from "../../assets/images/logo.svg";
 
-// @ts-ignore
 export default function Home() {
   return (
     <section id="home">
