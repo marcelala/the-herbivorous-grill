@@ -7,7 +7,7 @@ interface iProps {
 }
 
 export default function ProductItem({ item }: iProps) {
-  const { id, product_title, product_price } = item;
+  const { product_title, product_price } = item;
 
   // Methods
   {
@@ -25,7 +25,7 @@ export default function ProductItem({ item }: iProps) {
       {/*} <button onClick={() => onDelete(id)}>Delete this</button>
       <button onClick={() => onUpdateButton()}>Update this</button>*/}
       <b>{product_title}:</b>
-      {product_price}
+      <p>{product_price}</p>
     </li>
   );
 }

@@ -288,6 +288,30 @@ footer .content ul li {
   padding: 0.5rem 1rem;
 }
 
+.category-item {
+  display: grid;
+  justify-items: center;
+  row-gap: 1rem;
+  background-color: #1F1D2B;
+  border-radius: 16px;
+  color: white;
+  width: 17rem;
+  height: auto;
+  max-height: 100vh;
+  padding: 1.5rem;
+}
+.category-item .text-box {
+  display: grid;
+  justify-content: center;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  row-gap: 1rem;
+}
+.category-item .text-box h1 {
+  color: #EA7C69;
+  font-weight: 500;
+}
+
 #home {
   margin: 0 auto;
   height: 95vh;
@@ -335,6 +359,21 @@ footer .content ul li {
 
 #menu {
   background-color: #252836;
+}
+#menu img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+  max-height: 500px;
+  position: relative;
+  max-width: 1024px;
+  padding: 0;
+}
+#menu ul {
+  display: grid;
+  row-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,6 +1,7 @@
 // NPM package
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore/lite";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfiguration = {
   apiKey: "AIzaSyDLT9rdLFEpEzr8XpIkbceCRKnGmmd83mI",
@@ -14,3 +15,5 @@ const firebaseConfiguration = {
 export const firebaseInstance = initializeApp(firebaseConfiguration);
 
 export const fireStoreInstance = getFirestore(firebaseInstance);
+
+export const cloudStorageReference = getStorage(firebaseInstance);

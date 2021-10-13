@@ -3,12 +3,19 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { getFirestore } from "firebase/firestore/lite";
 // Project files
+//scripts
 import { useMenu } from "./state/MenuStateProvider";
+import { ProductStateProvider } from "./state/ProductStateProvider";
 import { firebaseInstance } from "./scripts/firebase";
 import { deleteDocument, updateDocument } from "./scripts/fireStore";
-import Home from "./pages/Home/Home";
+//components
 import Navigation from "./components/Navigation";
+//pages
+import Home from "./pages/Home/Home";
 import { Menu } from "./pages/Menu/Menu";
+import { Category } from "./pages/Category/Category";
+import { Product } from "./pages/Product/Product";
+import { Contact } from "./pages/Contact/Contact";
 
 function HerbivorousGrill() {
   // Global state
@@ -67,7 +74,18 @@ HerbivorousGrill.prototype.getFirebaseConfig = function() {
       <Navigation />
       <Switch>
         <Route component={Home} exact path="/" />
-        <Route component={Menu} path="/menu" />
+        <Route component={Menu} exact path="/menu" />
+        <ProductStateProvider>
+          <Route
+            component={Category}
+            path="/menu/:category_title/:category_id"
+          />
+          <Route
+            component={Product}
+            path="/menu/:category_title/:category_id/:product_title/:product_id"
+          />
+        </ProductStateProvider>
+        <Route component={Contact} path="/contact" />
       </Switch>
     </BrowserRouter>
   );
