@@ -1,7 +1,42 @@
 #category
-  display: grid
-  justify-content: center
   background-color: $backgorund-3
+  @include sectionGrid
 
   .product-cards
     @include cardGrid
+    align-items: end
+    width: 100%
+  a
+    width: 18rem
+    height: 26rem
+    max-height: 100vh
+    background-color: transparent
+    .product-item
+      @include cardContentGrid
+    img
+      opacity: 1
+      height: 100%
+      width: 100%
+      object-fit: scale-down
+    .text-box
+      display: grid
+      width: 100%
+      margin: 0
+      row-gap: $space-small
+      text-align: center
+
+    h2
+      color: $white
+      font-weight: 600
+      text-transform: capitalize
+    button
+      margin: 0 auto
+.card
+  background-color: $secondary
+  position: absolute
+  height: 16rem
+  border-radius: 16px
+  width: 288px
+  opacity: .2
+  display: flex
+  margin: 11rem auto 1rem

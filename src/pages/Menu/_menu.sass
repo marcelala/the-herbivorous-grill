@@ -1,38 +1,16 @@
 #menu
-  background-color: $backgorund-1
-  display: grid
-  justify-content: center
-  justify-items: center
-
-  .sectionImg
-    width: 100%
-    height: auto
-    object-fit: cover
-    overflow: hidden
-    max-height: 500px
-    position: relative
-    max-width: 1024px
-    padding: 0
-
+  @include sectionGrid
   ul
     @include cardGrid
-    margin: 0
     a
       width: 18rem
       height: 30rem
       max-height: 100vh
-
     .category-item
       @include cardContentGrid
       align-content: center
       grid-template-rows: 45% 30% 15%
-      margin: 0
       .text-box
         align-self: start
-      img
-        width: 100%
-        height: 100%
-        object-fit: cover
-
       .btn-secondary
         width: 100%

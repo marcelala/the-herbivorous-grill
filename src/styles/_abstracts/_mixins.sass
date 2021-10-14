@@ -1,13 +1,42 @@
+@mixin sectionGrid
+  background-color: $backgorund-1
+  display: grid
+  justify-items: center
+  width: 100%
+  height: auto
+  align-items: center
+  max-width: 1500px
+  margin: 0 auto
+  row-gap: $space-medium
+  column-gap: 0
+  overflow: hidden
+  .sectionImg
+    object-fit: cover
+    max-height: 500px
+    position: relative
+    padding: 0
+    margin: 0
+  .text-box-section
+    width: 100%
+    text-align: left
+    padding: 0 $space-large
+    h1
+      color: $primary
+    p
+      color: $white
+
 @mixin cardGrid()
   display: grid
   width: 100%
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
-  row-gap: $space-medium
+  row-gap: $space-large
   column-gap: $space-large
-  padding: $space-large
-  justify-content: center
+  padding: 0 $space-large
+  justify-items: center
   align-items: center
   align-content: center
+  margin: 0
+
 
 
 @mixin cardContentGrid()

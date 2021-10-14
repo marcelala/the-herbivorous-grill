@@ -22,16 +22,21 @@ export default function ProductItem({ item }: iProps) {
     onUpdate(id, editedProduct);
   }*/
   }
+  {
+    /*} <button onClick={() => onDelete(id)}>Delete this</button>
+      <button onClick={() => onUpdateButton()}>Update this</button>*/
+  }
   return (
     <li className="product-item">
       <img src={productImageUrl} alt="delicious foods and beautiful drinks" />
-      {/*} <button onClick={() => onDelete(id)}>Delete this</button>
-      <button onClick={() => onUpdateButton()}>Update this</button>*/}
-      <b>{product_title}:</b>
-      <p>{product_price}</p>
+      <div className="text-box">
+        <h2>{product_title}</h2>
+        <p>{product_price} sek</p>
+      </div>
       <Button theme={"secondary"} onClick={() => console.log(product_title)}>
         View
       </Button>
+      <span className="card" />
     </li>
   );
 }

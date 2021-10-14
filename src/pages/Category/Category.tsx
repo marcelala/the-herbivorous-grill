@@ -56,16 +56,15 @@ export function Category() {
       <img
         src={selectedCategory.category_image}
         alt={`yummy ${selectedCategory.category_title}`}
+        className="sectionImg"
       />
       <div className="text-box-section">
         <h1>{selectedCategory.category_title}</h1>
         <p> {selectedCategory.category_description}</p>
       </div>
-      <div>
-        {status === 0 && <p>Loading ⏱</p>}
-        {status === 1 && <ul className="product-cards">{ProductItems}</ul>}
-        {status === 2 && <p>Error 🚨</p>}
-      </div>
+      {status === 0 && <p>Loading ⏱</p>}
+      {status === 1 && <ul className="product-cards">{ProductItems}</ul>}
+      {status === 2 && <p>Error 🚨</p>}
     </section>
   );
 }
