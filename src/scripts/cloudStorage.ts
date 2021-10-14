@@ -1,11 +1,11 @@
 // NPM package
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
 
 // Project files
 import { cloudStorageReference } from "scripts/firebase";
 import { useCallback } from "react";
 
-export const imagesBucketRef = ref(cloudStorageReference, `/images/`);
+export const imagesBucketRef = ref(cloudStorageReference, `gs://images/`);
 
 /*
 export const getCloudImage = useCallback(async (filename) => {

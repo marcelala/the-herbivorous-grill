@@ -1,10 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 
 // Project files
 import iCategory from "../types/iCategory";
 import Button from "./Button";
-import { getDownloadURL, ref } from "firebase/storage";
-import { imagesBucketRef } from "../scripts/cloudStorage";
 
 // Interface
 interface iProps {
@@ -13,22 +11,7 @@ interface iProps {
 
 export default function CategoryItem({ item }: iProps) {
   const { id, category_title, category_description, category_image } = item;
-  const [categoryImageUrl, setImageUrl] = useState("");
-
-  const getImage = useCallback(async (category_image) => {
-    try {
-      const imageRef = ref(imagesBucketRef, category_image);
-      const imageUrl = await getDownloadURL(imageRef);
-      setImageUrl(await imageUrl);
-    } catch {
-      console.log(categoryImageUrl);
-    }
-  }, []);
-
-  // @ts-ignore
-  useEffect(() => getImage(category_image), [getImage]);
-
-  //console.log(category_image);
+  const [categoryImageUrl, setImageUrl] = useState(category_image);
 
   function onUpdateButton() {
     const editedCategory = {

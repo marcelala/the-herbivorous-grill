@@ -6,7 +6,6 @@ import iProduct from "../../types/iProduct";
 import ProductItem from "../../components/ProductItem";
 import { useProducts } from "../../state/ProductStateProvider";
 import { getCollection } from "../../scripts/fireStore";
-import menuImg from "../../assets/images/menuImg.png";
 
 export function Category() {
   // @ts-ignore
