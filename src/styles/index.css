@@ -356,6 +356,15 @@ footer .content ul li {
   object-fit: cover;
   opacity: 0.5;
 }
+#home .brand-container {
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
 #home .brand {
   max-width: 100%;
   width: 7rem;
@@ -364,12 +373,12 @@ footer .content ul li {
   display: flex;
   flex-direction: column;
   background-color: transparent;
-  justify-content: center;
-  align-items: center;
   border-radius: 100%;
   border: 3px solid #FFFFFF;
   margin: 1.5rem auto;
   padding: 0;
+  justify-content: center;
+  align-items: center;
 }
 #home .brand img {
   position: relative;
@@ -380,12 +389,18 @@ footer .content ul li {
 }
 #home .brand-name {
   margin: 0;
-  width: 80%;
+  width: 85%;
   height: auto;
   font-weight: 500;
   color: #FFFFFF;
   text-align: center;
   font-size: 0.8rem;
+}
+#home h3 {
+  position: relative;
+  display: inline-block;
+  top: 40%;
+  text-align: center;
 }
 
 #menu {

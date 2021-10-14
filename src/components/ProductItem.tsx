@@ -1,6 +1,7 @@
 // Project files
 import iProduct from "../types/iProduct";
 import Button from "./Button";
+import { useState } from "react";
 
 // Interface
 interface iProps {
@@ -8,8 +9,7 @@ interface iProps {
 }
 
 export default function ProductItem({ item }: iProps) {
-  const { product_title, product_price } = item;
-
+  const { product_title, product_price, image_url } = item;
   // Methods
   {
     /*function onUpdateButton() {
@@ -23,7 +23,7 @@ export default function ProductItem({ item }: iProps) {
   }
   return (
     <li className="product-item">
-      <img src="" alt="delicious foods and beautiful drinks" />
+      <img src={""} alt="delicious foods and beautiful drinks" />
       {/*} <button onClick={() => onDelete(id)}>Delete this</button>
       <button onClick={() => onUpdateButton()}>Update this</button>*/}
       <b>{product_title}:</b>
