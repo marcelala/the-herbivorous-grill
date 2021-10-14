@@ -1,17 +1,16 @@
+//dependencies
 import { useState } from "react";
-
-// Project files
+// project files
 import iCategory from "../types/iCategory";
 import Button from "./Button";
-
-// Interface
+// interface
 interface iProps {
   item: iCategory;
 }
 
 export default function CategoryItem({ item }: iProps) {
-  const { id, category_title, category_description, category_image } = item;
-  const [categoryImageUrl, setImageUrl] = useState(category_image);
+  const { category_title, category_description, category_image } = item;
+  const [categoryImageUrl] = useState(category_image);
 
   function onUpdateButton() {
     const editedCategory = {

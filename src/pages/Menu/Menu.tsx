@@ -15,7 +15,7 @@ export function Menu() {
   ));
   return (
     <section id="menu">
-      <img src={menuImg} alt="" />
+      <img src={menuImg} alt="" className={"sectionImg"} />
       <div className="text-box-section">
         <h1>Menu</h1>
         <p> Live and let live</p>
