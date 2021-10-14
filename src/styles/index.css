@@ -1,4 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.sectionImg {
+  object-fit: cover;
+  max-height: 500px;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.text-box-section {
+  width: 100%;
+  text-align: left;
+  padding: 0 2rem;
+}
+.text-box-section h1 {
+  color: #EA7C69;
+}
+.text-box-section h2 {
+  color: #E0E6E9;
+}
+.text-box-section p {
+  color: #FFFFFF;
+}
+
 @-webkit-keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -38,6 +61,7 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: "Barlow", sans-serif;
   color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,7 +71,7 @@ body {
   scroll-behavior: smooth;
   width: 100vw;
   height: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: "Barlow", sans-serif;
   background-color: #1F1D2B;
   margin: 0 auto;
 }
@@ -102,7 +126,7 @@ p {
 h1 {
   font-size: 2.2rem;
   line-height: 2.56rem;
-  font-family: "Alegreya Sans SC", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
 }
 
@@ -171,7 +195,7 @@ p {
 }
 .spinner-container h3 {
   color: #EA7C69;
-  font: "Alegreya Sans SC", sans-serif;
+  font: "Barlow Condensed", sans-serif;
   text-align: center;
   font-weight: 400;
 }
@@ -179,7 +203,7 @@ p {
 .btn {
   cursor: pointer;
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Barlow", sans-serif;
   text-decoration: none;
   border: 0;
   font-weight: 500;
@@ -267,7 +291,7 @@ nav {
 
 hr {
   margin: 0;
-  box-shadow: 0 0 5px 2px #EA7C69;
+  box-shadow: 0 0 5px 2px rgba(234, 124, 105, 0.2);
   border: none;
 }
 
@@ -282,7 +306,7 @@ footer .content {
   align-items: center;
 }
 footer .content p {
-  color: #EA7C69;
+  color: rgba(234, 124, 105, 0.2);
   padding: 0.8rem;
   text-align: center;
 }
@@ -392,24 +416,7 @@ footer .content ul li {
   row-gap: 1.5rem;
   column-gap: 0;
   overflow: hidden;
-}
-#menu .sectionImg {
-  object-fit: cover;
-  max-height: 500px;
-  position: relative;
-  padding: 0;
-  margin: 0;
-}
-#menu .text-box-section {
-  width: 100%;
-  text-align: left;
-  padding: 0 2rem;
-}
-#menu .text-box-section h1 {
-  color: #EA7C69;
-}
-#menu .text-box-section p {
-  color: #FFFFFF;
+  padding-bottom: 2rem;
 }
 #menu ul {
   display: grid;
@@ -417,7 +424,7 @@ footer .content ul li {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 2rem;
   column-gap: 2rem;
-  padding: 0 2rem;
+  padding: 2rem;
   justify-items: center;
   align-items: center;
   align-content: center;
@@ -462,24 +469,7 @@ footer .content ul li {
   row-gap: 1.5rem;
   column-gap: 0;
   overflow: hidden;
-}
-#category .sectionImg {
-  object-fit: cover;
-  max-height: 500px;
-  position: relative;
-  padding: 0;
-  margin: 0;
-}
-#category .text-box-section {
-  width: 100%;
-  text-align: left;
-  padding: 0 2rem;
-}
-#category .text-box-section h1 {
-  color: #EA7C69;
-}
-#category .text-box-section p {
-  color: #FFFFFF;
+  padding-bottom: 2rem;
 }
 #category .product-cards {
   display: grid;
@@ -487,7 +477,7 @@ footer .content ul li {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 2rem;
   column-gap: 2rem;
-  padding: 0 2rem;
+  padding: 2rem;
   justify-items: center;
   align-items: center;
   align-content: center;
@@ -549,62 +539,71 @@ footer .content ul li {
 #contact {
   background-color: #252836;
   display: grid;
-  justify-content: center;
-}
-#contact .title h2 {
-  color: E0E6E9;
-}
-
-.contact-content {
-  padding: 0 2rem;
-  display: grid;
-  justify-content: center;
   justify-items: center;
-  max-width: 80%;
-  margin: 1rem auto;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  row-gap: 1.5rem;
+  column-gap: 0;
+  overflow: hidden;
+  padding-bottom: 2rem;
+  row-gap: 2rem;
+  margin: 0 auto;
 }
-.contact-content ul {
+#contact ul {
   list-style: circle;
-  list-style-position: outside;
-  margin: 1rem;
+  list-style-position: inside;
+  padding: 0;
 }
 
 .booking {
   display: grid;
 }
 .booking .fields {
+  width: 100%;
   margin-top: 1rem;
   display: grid;
-  row-gap: 0.8rem;
-  column-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
 .booking form {
   margin-bottom: 2rem;
+  max-width: 900px;
+  width: 100%;
 }
 .booking .btn-primary {
   margin: 0 auto;
 }
 .booking input {
-  width: 90%;
-  background-color: rgba(0, 0, 0, 0.04);
+  width: 100%;
+  background-color: #2D303E;
+  border-radius: 16px;
+  color: #FFFFFF;
   border: 2px solid transparent;
   outline: 0;
   font-size: 1.2rem;
   padding: 0.6rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  text-size-adjust: 100%;
   margin: 0.2rem;
 }
 
 .map-container {
   color: #EA7C69;
   font-size: 0.8rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Barlow", sans-serif;
   margin: 1.5rem auto;
-  max-width: 90%;
+  max-width: 100%;
   max-height: 100vh;
+}
+
+.address, .booking, .hours {
+  width: 100%;
+  padding: 0 2rem;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=index.css.map */

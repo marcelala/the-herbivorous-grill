@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useMenu } from "../../state/MenuStateProvider";
 import iCategory from "../../types/iCategory";
 import iProduct from "../../types/iProduct";
 import ProductItem from "../../components/ProductItem";
 import { useProducts } from "../../state/ProductStateProvider";
 import { getCollection } from "../../scripts/fireStore";
+import Button from "../../components/Button";
 
 export function Category() {
   // @ts-ignore
@@ -13,6 +14,8 @@ export function Category() {
   // @ts-ignore
   const { products, productsDispatch } = useProducts();
   const url = useParams();
+  const history = useHistory();
+
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
   // @ts-ignore
   const selectedId = url.category_id;
@@ -65,6 +68,11 @@ export function Category() {
       {status === 0 && <p>Loading ⏱</p>}
       {status === 1 && <ul className="product-cards">{ProductItems}</ul>}
       {status === 2 && <p>Error 🚨</p>}
+      <div>
+        <Button onClick={() => history.goBack()} theme={"secondary"}>
+          Go back
+        </Button>
+      </div>
     </section>
   );
 }
