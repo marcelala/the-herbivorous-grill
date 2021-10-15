@@ -1,46 +1,165 @@
-# Getting Started with Create React App
+# The Herbivorous Grill
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
+[![MIT](https://camo.githubusercontent.com/3dbcfa4997505c80ef928681b291d33ecfac2dabf563eb742bb3e269a5af909c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f496c65726961796f2f6d61726b646f776e2d6261646765733f7374796c653d666f722d7468652d6261646765)](https://professionalprograms.mit.edu/?utm_source=google&utm_medium=cpc&utm_campaign=MIT_BRAND_PROTECTION&utm_medium=ppc&utm_term=massachusetts%20institute%20of%20technology%20mit&utm_campaign=MIT_BRAND_PROTECTION&utm_source=adwords&hsa_mt=e&hsa_src=g&hsa_tgt=kwd-325879874370&hsa_acc=2660252290&hsa_ad=406000382319&hsa_cam=8546883354&hsa_kw=massachusetts%20institute%20of%20technology%20mit&hsa_net=adwords&hsa_ver=3&hsa_grp=85551586934&gclid=CjwKCAjwr56IBhAvEiwA1fuqGvMJK9N0hVJ40ns4Qil_4byBgG-0AKpD5gEImBRlcJ1cmbHUsDzoohoCMK4QAvD_BwE)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Welcome to The Herbivorous Grill, an assignment from Novare Potencial Academy. The goal of this project was to fetch data from a
+a No-SQL database, display items and allow for authorized users to edit the data. Additionally, Typescript was used pn this project.
+Click [here](https://herbivorousgrill.web.app/)
+to visit.
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `npm test`
+- [Overview](#overview)
+- [Specification](#specification)
+- [Project Organisation](#project-organisation)
+- [How to run the project](#how-to-run-the-project)
+- [Dependencies](#dependencies-&-tools-used)
+- [Attributions](#attributions-&-helpful-links)
+  <br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `npm run build`
+## Specification
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The goal of this project was to build a multiple page application for a Vegan BBQ restaurant as an assignment from Novare
+Potential Academy.
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Organisation
 
-### `npm run eject`
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Requirement gathering
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Assignment](https://docs.google.com/document/d/1u1OE_DjhYwKrULZW7N4PXOFDELVyTiu9caupUZfVc34/edit?usp=sharing)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br/>
 
-## Learn More
+### Project analysis
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Google Spreadsheets link](https://docs.google.com/document/d/1q191OWVCU-s5dln_V0uPNNHgSAaPcyx1BjUvXtlJzbo/edit?usp=sharing)
+<br/>
+
+### Component tree
+
+<br/>
+
+The component tree allows the visualization of the different parts of the application.
+<br/>
+
+[View on Whimsical](https://whimsical.com/another-restaurant-XEbiNssjKwBLfq6GmKbfzD@7YNFXnKbYjWZACnvfyryP)
+<br/>
+
+### User Flow
+
+<br/>
+<br/>
+
+[View on Whimsical](https://whimsical.com/another-restaurant-XEbiNssjKwBLfq6GmKbfzD@7YNFXnKbYfFqSbqA24o5b)
+<br/>
+
+### Design mockup
+
+<br/>
+
+[Figma mockup](https://www.figma.com/file/7j5IrIHNORRWe3aG9PeYH1/The-Herbivorous-Grill?node-id=137%3A1651)
+<br/>
+
+## How to run the project
+
+<br/>
+
+To run the project in the **development mode**, follow the instructions below:
+
+Download or clone the repository in your computer:
+
+```
+$ git clone https://github.com/marcelala/herbivorousGrill.git
+```
+
+In the repository folder:
+
+- install project dependencies with
+
+```
+npm install
+```
+
+- start the development server with
+
+```
+npm start
+```
+
+- open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+To run the project in the **production mode**, use this command intstead:
+
+```
+npm run build
+```
+
+<br/>
+
+<br/>
+
+## Dependencies & Tools Used
+
+<br/>
+
+- As a project generated with `create-react-app`, it includes React and ReactDOM as dependencies. It also includes a set
+  of scripts used by Create React App as a development dependency.
+- [Webpack](https://webpack.js.org/) for handling all assets, as Webpack offers a custom way of “extending” the concept
+  of `import` beyond JavaScript.
+- [React Router Dom](https://www.npmjs.com/package/react-router-dom) for routing Navigation.
+- [Node-SASS](https://github.com/sass/) Sassy CSS for styling
+- [Firebase](https://firebase.google.com/) for hosting the application.
+- [Mapbox](https://www.mapbox.com/maps/) for maps.
+- [Moment.js](https://momentjs.com/) for formatting dates and times.
+- [i18next](https://www.i18next.com/) for internationalization.
+- [Worker-loader](https://www.npmjs.com/package/worker-loader) enables the transpilation of mapbox in react
+  applications.
+- [Typesdcreipt](https://www.npmjs.com/package/typescript) enables the transpilation of mapbox in react
+  applications.
+
+<br/>
+
+## DevDependencies
+
+<br/>
+
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+
+<br/>
+
+## Attributions & Helpful Links
+
+<br/>
+
+- This project was developed by Marcela Felix Fortis mentored by [Eduardo Alvarez](https://github.com/elalienx) with
+  support from [Novare Potential](https://www.novarepotential.com/).
+- Barlow fonts are by from Google Fonts.
+- UI inspired by @yahyaamirudin from Figma Community;
+- Icons by FontAwesome [(Creative Commons Attribution 4.0 International license)](https://fontawesome.com/license).
+- Images from Unsplash.
+- Vectors by [PNGWING](https://www.pngwing.com/en/free-png-zbytj).
+- The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). For more
+  information on how to perform common tasks,
+  visit [this page](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
+  .
