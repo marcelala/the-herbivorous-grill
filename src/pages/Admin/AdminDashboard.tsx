@@ -1,8 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-
-import ProductItem from "../../components/ProductItem";
-import iProduct from "../../types/iProduct";
+import React, { useCallback, useState } from "react";
 import { useMenu } from "../../state/MenuStateProvider";
 import iCategory from "../../types/iCategory";
 import CategoryItem from "../../components/CategoryItem";

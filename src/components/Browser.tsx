@@ -1,9 +1,12 @@
 // npm Packages
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 //project files
+///components
 import ScrollToTop from "./ScrollToTop";
 import Navigation from "./Navigation";
-//pages
+import Footer from "./Footer";
+
+///pages
 import Home from "../pages/Home/Home";
 import Menu from "../pages/Menu/Menu";
 import Category from "../pages/Category/Category";
@@ -37,6 +40,7 @@ export const Browser = (
         />
         <Route path="*" component={Page404} />
       </Switch>
+      <Footer />
     </ScrollToTop>
   </BrowserRouter>
 );
