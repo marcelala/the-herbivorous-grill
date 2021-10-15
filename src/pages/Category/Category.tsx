@@ -71,8 +71,8 @@ export default function Category() {
       {status === 1 && <ul className="product-cards">{ProductItems}</ul>}
       {status === 2 && <p>Error 🚨</p>}
       <div>
-        <Button onClick={() => history.goBack()} theme={"secondary"}>
-          Go back
+        <Button onClick={() => history.goBack()} theme={"primary"}>
+          Return to Menu
         </Button>
       </div>
     </section>

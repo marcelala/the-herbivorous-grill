@@ -61,7 +61,8 @@ export default function AdminDashboard() {
         {" "}
         Add new category
       </Button>
-      <ul> {CategoryList} </ul>
+      {menu.length === 0 && <p>🚨 Please add a category to start.</p>}
+      {menu.length > 0 && <ul> {CategoryList} </ul>}
     </section>
   );
 }

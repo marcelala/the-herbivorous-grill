@@ -1,9 +1,7 @@
 // Inteface
-interface iProps {
-  settings: any;
-  hook: any;
-}
-export default function Input({ hook, settings }: iProps) {
+import iInputField from "../types/iInputField";
+
+export default function Input({ hook, settings }: iInputField) {
   const { autofocus, autocomplete, name, placeholder, type } = settings;
   const [state, setState] = hook;
 

@@ -1,7 +1,7 @@
 // npm Packages
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 //project files
-import ScrollToTop from "../scripts/ScrollToTop";
+import ScrollToTop from "./ScrollToTop";
 import { ProductStateProvider } from "../state/ProductStateProvider";
 import Navigation from "./Navigation";
 //pages
