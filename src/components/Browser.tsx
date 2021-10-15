@@ -2,7 +2,6 @@
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 //project files
 import ScrollToTop from "./ScrollToTop";
-import { ProductStateProvider } from "../state/ProductStateProvider";
 import Navigation from "./Navigation";
 //pages
 import Home from "../pages/Home/Home";
@@ -22,17 +21,15 @@ export const Browser = (
         <Route component={Contact} path="/contact" />
         <Route component={AdminDashboard} path="/admin-dashboard" />
         <Route exact path="/menu" component={Menu} />
-        <ProductStateProvider>
-          <Route
-            component={Category}
-            exact
-            path="/menu/:category_title/:category_id"
-          />
-          <Route
-            component={Product}
-            path="/menu/:category_title/:category_id/:id"
-          />
-        </ProductStateProvider>
+        <Route
+          component={Category}
+          exact
+          path="/menu/:category_title/:category_id"
+        />
+        <Route
+          component={Product}
+          path="/menu/:category_title/:category_id/:id"
+        />
         <Route path="*" component={Page404} />
       </Switch>
     </ScrollToTop>

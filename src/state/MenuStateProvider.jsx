@@ -9,20 +9,23 @@ import {
 } from "react";
 
 // Project files
-import { getCollection } from "../scripts/firebase/fireStore";
 import MenuReducer from "./MenuReducer";
+import ProductReducer from "./ProductReducer";
 
 // Properties
 const MenuContext = createContext(null);
+
 export function MenuStateProvider({ children }) {
   // Local state
   const [menu, menuDispatch] = useReducer(MenuReducer, []);
+  const [products, productsDispatch] = useReducer(ProductReducer, []);
+
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
 
   // Properties
-  const PATH = "menu";
+  const menuCollection = "menu";
 
-  // Methods
+  /* Methods
   const fetchData = useCallback(async (path) => {
     try {
       console.log("useEffect in menu provider called");
@@ -35,11 +38,14 @@ export function MenuStateProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    fetchData(PATH);
+    fetchData(menuCollection);
+    fetchData(productsSubcollection);
   }, []);
-
+*/
   return (
-    <MenuContext.Provider value={{ menu, dispatch: menuDispatch, status }}>
+    <MenuContext.Provider
+      value={{ menu, menuDispatch, products, productsDispatch }}
+    >
       {children}
     </MenuContext.Provider>
   );

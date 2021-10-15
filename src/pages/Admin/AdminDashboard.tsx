@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ProductItem from "../../components/ProductItem";
 import iProduct from "../../types/iProduct";
 import useFetch from "../../scripts/useFetch";
@@ -8,13 +8,39 @@ import iCategory from "../../types/iCategory";
 import CategoryItem from "../../components/CategoryItem";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { getCollection } from "../../scripts/firebase/fireStore";
 
 export default function AdminDashboard() {
   // @ts-ignore
   const { menu, dispatch } = useMenu();
-  const fetchedMenu = useFetch("menu");
+  //const fetch = useFetch("menu");
+  //const { data, loadSuccess, error, loading } = fetch;
+
+  /*const menuPath = "menu";
+  const productsPath = `menu/${selectedId}/products/`;
+  // Methods
+  const fetchData = useCallback(
+    async (path) => {
+      try {
+        // @ts-ignore
+        const productsCollection = await getCollection(path);
+        // @ts-ignore
+        setLoadedCategory(productsCollection);
+        productsDispatch({ type: "SET_PRODUCTS", payload: productsCollection });
+        setStatus(1);
+      } catch {
+        setStatus(2);
+      }
+    },
+    [productsDispatch]
+  );
+  // @ts-ignore
+  useEffect(() => fetchData(path), [fetchData]);
+*/
+  /*const fetchedMenu = useFetch("menu");
   const [localMenu, setLocalMenu] = useState([]);
   const [status, setStatus] = useState("");
+  // @ts-ignore
   useEffect(() => setLocalMenu(fetchedMenu), []);
   useEffect(() => {
     //@ts-ignore
@@ -46,7 +72,6 @@ export default function AdminDashboard() {
       </div>
     </div>
   ));
-
   return (
     <section id="admin-dashboard">
       <div className="text-box-section">

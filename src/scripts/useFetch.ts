@@ -31,5 +31,5 @@ export default function useFetch(collectionName: string) {
     fetchData(database, collectionName);
   }, [database]);
 
-  return data;
+  return { data, loadSuccess, error, loading };
 }

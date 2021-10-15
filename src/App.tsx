@@ -1,19 +1,39 @@
 // NPM packages
 // @ts-ignore
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { getFirestore } from "firebase/firestore/lite";
+import { getFirestore } from "firebase/firestore/";
 // Project files
 import { useMenu } from "./state/MenuStateProvider";
-import { firebaseInstance } from "./scripts/firebase/firebase";
-import { deleteDocument, updateDocument } from "./scripts/firebase/fireStore";
+import {
+  deleteDocument,
+  getCollection,
+  updateDocument,
+} from "./scripts/firebase/fireStore";
 import { Browser } from "./components/Browser";
+import { useCallback, useEffect, useState } from "react";
 
 function HerbivorousGrill() {
   // Global state
   // @ts-ignore
-  const { status } = useMenu();
+  const { menuDispatch, menu } = useMenu();
   // Properties
-  const database = getFirestore(firebaseInstance);
+  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
+  const path = "menu";
+
+  // Methods
+  const fetchData = useCallback(async (path) => {
+    try {
+      const menuCollection = await getCollection(path);
+      menuDispatch({ type: "SET_MENU", payload: menuCollection });
+      setStatus(1);
+    } catch {
+      setStatus(2);
+    }
+  }, []);
+
+  // @ts-ignore
+  useEffect(() => fetchData(path), [fetchData]);
+  /*
   // Methods
   function onDelete(id: string) {
     deleteDocument(database, "menu", id);
@@ -22,7 +42,7 @@ function HerbivorousGrill() {
   function onUpdate(id: string, editedCategory: object) {
     updateDocument(database, "menu", id, editedCategory);
   }
-
+*/
   return (
     <div className="App">
       {status === 0 && <p>Loading ⏱</p>}
