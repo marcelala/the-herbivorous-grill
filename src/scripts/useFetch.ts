@@ -1,19 +1,25 @@
-import { useCallback, useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import { getCollection } from "./firebase/fireStore";
+import { getFirestore } from "firebase/firestore/lite";
+//project files
+import { firebaseInstance } from "./firebase/firebase";
 
 export default function useFetch(collectionName: string) {
   // Local state
-  const [data, setData] = useState({});
-  const [loadSuccess, setLoadSuccess] = useState(null);
+  const [data, setData] = useState([]);
+  const [loadSuccess, setLoadSuccess] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  // @ts-ignore
+  const database = getFirestore(firebaseInstance);
 
   // Methods
-  async function fetchData(collectionName: string) {
+  async function fetchData(database: any, collectionName: string) {
     try {
       const responseData = await getCollection(collectionName);
-      console.log(responseData);
+      // @ts-ignore
       setData(responseData);
+      setLoadSuccess(true);
     } catch (e) {
       // @ts-ignore
       setError(e);
@@ -22,8 +28,8 @@ export default function useFetch(collectionName: string) {
     }
   }
   useEffect(() => {
-    fetchData(collectionName);
-  }, [collectionName]);
+    fetchData(database, collectionName);
+  }, [database]);
 
-  return { data, loadSuccess, error, loading, setData };
+  return data;
 }

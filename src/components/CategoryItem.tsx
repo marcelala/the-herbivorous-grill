@@ -29,9 +29,9 @@ export default function CategoryItem({ item }: iProps) {
         <h1>{category_title}</h1>
         <p>{category_description}</p>
       </div>
-      <Button theme={"secondary"} onClick={""}>
-        View {category_title}
-      </Button>
+      <div className="btn btn-secondary">
+        <p>View {category_title}</p>
+      </div>
     </li>
   );
 }

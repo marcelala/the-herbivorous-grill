@@ -1,0 +1,27 @@
+#admin-dashboard
+  padding-top: $space-large
+  row-gap: $space-large
+  margin: 0 auto
+  @include sectionGrid
+
+  ul
+    @include cardGrid
+    .edit-container
+      @include cardContentGrid
+      width: 20rem
+      height: auto
+      background-color: transparent
+      align-content: center
+      border: 0.5rem dashed $primary-light
+    .btn
+      width: 100%
+    .category-item
+      @include cardContentGrid
+      padding: 0
+      height: auto
+      background-color: transparent
+      border-radius: 0
+      .text-box
+        width: 100%
+      .btn-secondary
+        display: none

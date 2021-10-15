@@ -1,26 +1,27 @@
 import React from "react";
 // @ts-ignore
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+//project files
 import logo from "../assets/images/logo.svg";
 
 export default function Navigation() {
   return (
     <nav className="navigation">
       <ul>
-        <Link to="/">
+        <NavLink to="/">
           <li>
             <img className="logo" src={logo} alt="background" />
           </li>
-        </Link>
-        <Link to="/">
+        </NavLink>
+        <NavLink to="/">
           <li>Home</li>
-        </Link>
-        <Link to="/menu">
+        </NavLink>
+        <NavLink to="/menu">
           <li>Menu</li>
-        </Link>
-        <Link to="/contact">
+        </NavLink>
+        <NavLink to="/contact">
           <li>Contact</li>
-        </Link>
+        </NavLink>
       </ul>
     </nav>
   );

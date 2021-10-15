@@ -39,9 +39,7 @@ export default function ProductItem({ item }: iProps) {
         <h2>{product_title}</h2>
         <p>{product_price} sek</p>
       </div>
-      <Button theme={"secondary"} onClick={() => handleClick}>
-        View
-      </Button>
+      <div className="btn btn-secondary">View</div>
       <span className="card" />
     </li>
   );

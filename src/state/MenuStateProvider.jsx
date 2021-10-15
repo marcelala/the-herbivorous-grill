@@ -25,6 +25,7 @@ export function MenuStateProvider({ children }) {
   // Methods
   const fetchData = useCallback(async (path) => {
     try {
+      console.log("useEffect in menu provider called");
       const menu = await getCollection(path);
       menuDispatch({ type: "SET_MENU", payload: menu });
       setStatus(1);
@@ -33,7 +34,9 @@ export function MenuStateProvider({ children }) {
     }
   }, []);
 
-  useEffect(() => fetchData(PATH), [fetchData]);
+  useEffect(() => {
+    fetchData(PATH);
+  }, []);
 
   return (
     <MenuContext.Provider value={{ menu, dispatch: menuDispatch, status }}>

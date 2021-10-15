@@ -15,8 +15,9 @@ export default function Category() {
   const { products, productsDispatch } = useProducts();
   const url = useParams();
   const history = useHistory();
-
-  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
+  // 0 loading, 1 loaded, 2 error
+  const [status, setStatus] = useState(0);
+  const [loadedCategory, setLoadedCategory] = useState({});
   // @ts-ignore
   const selectedId = url.category_id;
   const selectedCategory = menu.find(
@@ -31,8 +32,9 @@ export default function Category() {
     async (path) => {
       try {
         // @ts-ignore
-        const collection = await getCollection(path);
-        productsDispatch({ type: "SET_PRODUCTS", payload: collection });
+        const productsCollection = await getCollection(path);
+        setLoadedCategory(productsCollection);
+        productsDispatch({ type: "SET_PRODUCTS", payload: productsCollection });
         setStatus(1);
       } catch {
         setStatus(2);
@@ -42,7 +44,7 @@ export default function Category() {
   );
 
   // @ts-ignore
-  useEffect(() => fetchData(path), [fetchData, path]);
+  useEffect(() => fetchData(path), [fetchData]);
 
   // Methods
   const ProductItems = products.map((item: iProduct) => (
