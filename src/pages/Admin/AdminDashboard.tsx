@@ -11,11 +11,19 @@ import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
   // @ts-ignore
-  const { menu } = useMenu();
+  const { menu, dispatch } = useMenu();
   const fetchedMenu = useFetch("menu");
-  //const fetchedProducts = useFetch("products");
+  const [localMenu, setLocalMenu] = useState([]);
+  const [status, setStatus] = useState("");
+  useEffect(() => setLocalMenu(fetchedMenu), []);
+  useEffect(() => {
+    //@ts-ignore
+    setStatus("data updated");
+    dispatch({ type: "SET_MENU", payload: localMenu });
+  }, [localMenu]);
+  console.log(menu);
 
-  const [localMenu, setLocalMenu] = useState(fetchedMenu);
+  //const fetchedProducts = useFetch("products");
   //local state
   //const [localProducts, setLocalProducts] = useState(fetchedProducts.data);
   /*
@@ -23,19 +31,19 @@ export default function AdminDashboard() {
     productsDispatch({ type: "SET_PRODUCTS", payload: localProducts });
   }, [localProducts]);
 */
-  console.log(menu);
   //console.log(fetchedProducts.data);
-
-  const CategoryList = fetchedMenu.map((item: iCategory) => (
+  const CategoryList = menu.map((item: iCategory) => (
     <div className="edit-container" key={item.id}>
       <CategoryItem item={item} />
-      <Button theme={"primary"} onClick={() => console.log("edit category")}>
-        Edit category
-      </Button>
-      <Link to="admin-dashboard/products" className="btn btn-secondary">
-        {" "}
-        Manage products
-      </Link>
+      <div className="btn-container">
+        <Button theme={"primary"} onClick={() => console.log("edit category")}>
+          Edit category
+        </Button>
+        <Link to="admin-dashboard/products" className="btn btn-secondary">
+          {" "}
+          Manage products
+        </Link>
+      </div>
     </div>
   ));
 
