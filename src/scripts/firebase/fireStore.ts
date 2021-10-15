@@ -10,7 +10,7 @@ import {
   DocumentData,
 } from "firebase/firestore/lite";
 //project files
-import { fireStoreInstance } from "../scripts/firebase";
+import { fireStoreInstance } from "./firebase";
 
 // Create doc with auto id
 export async function createDoc(path: string, data: object) {

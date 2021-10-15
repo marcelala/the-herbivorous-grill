@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
-import { getCollection } from "./fireStore";
+import { getCollection } from "./firebase/fireStore";
 
 export default function useFetch(collectionName: string) {
   // Local state

@@ -1,4 +1,4 @@
-import useMapBox from "../../scripts/MapBox";
+import useMapBox from "../../scripts/MapBox.jsx";
 
 // Interface
 interface iProps {

@@ -2,7 +2,7 @@
 import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
 
 // Project files
-import { cloudStorageReference } from "scripts/firebase";
+import { cloudStorageReference } from "scripts/firebase/firebase";
 import { useCallback } from "react";
 
 export const imagesBucketRef = ref(cloudStorageReference, `gs://images/`);

@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import BookingForm from "./BookingForm";
 import contactImg from "../../assets/images/owner.png";
 import { useCallback, useEffect, useState } from "react";
-import { getCollection } from "../../scripts/fireStore";
+import { getCollection } from "../../scripts/firebase/fireStore";
 
 export interface iData {
   id: string;

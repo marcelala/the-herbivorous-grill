@@ -2,6 +2,7 @@
 import iProduct from "../types/iProduct";
 import Button from "./Button";
 import { useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
 // Interface
 interface iProps {
@@ -11,7 +12,12 @@ interface iProps {
 export default function ProductItem({ item }: iProps) {
   const { product_title, product_price, image_url } = item;
   const [productImageUrl] = useState(image_url);
+
+  function handleClick() {
+    console.log("clicked product button");
+  }
   // Methods
+
   {
     /*function onUpdateButton() {
     const editedProduct = {
@@ -33,7 +39,7 @@ export default function ProductItem({ item }: iProps) {
         <h2>{product_title}</h2>
         <p>{product_price} sek</p>
       </div>
-      <Button theme={"secondary"} onClick={() => console.log(product_title)}>
+      <Button theme={"secondary"} onClick={() => handleClick}>
         View
       </Button>
       <span className="card" />

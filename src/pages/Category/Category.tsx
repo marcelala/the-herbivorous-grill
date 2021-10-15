@@ -5,10 +5,10 @@ import iCategory from "../../types/iCategory";
 import iProduct from "../../types/iProduct";
 import ProductItem from "../../components/ProductItem";
 import { useProducts } from "../../state/ProductStateProvider";
-import { getCollection } from "../../scripts/fireStore";
+import { getCollection } from "../../scripts/firebase/fireStore";
 import Button from "../../components/Button";
 
-export function Category() {
+export default function Category() {
   // @ts-ignore
   const { menu } = useMenu();
   // @ts-ignore

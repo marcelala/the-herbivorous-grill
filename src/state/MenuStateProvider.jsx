@@ -9,7 +9,7 @@ import {
 } from "react";
 
 // Project files
-import { getCollection } from "../scripts/fireStore";
+import { getCollection } from "../scripts/firebase/fireStore";
 import MenuReducer from "./MenuReducer";
 
 // Properties
@@ -26,7 +26,6 @@ export function MenuStateProvider({ children }) {
   const fetchData = useCallback(async (path) => {
     try {
       const menu = await getCollection(path);
-      console.log("menu", menu);
       menuDispatch({ type: "SET_MENU", payload: menu });
       setStatus(1);
     } catch {
