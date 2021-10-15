@@ -11,6 +11,7 @@ import Product from "../pages/Product/Product";
 import Contact from "../pages/Contact/Contact";
 import Page404 from "../pages/404/Page404";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
+import AdminProducts from "../pages/Admin/AdminProducts";
 
 export const Browser = (
   <BrowserRouter>
@@ -18,9 +19,12 @@ export const Browser = (
       <Navigation />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route component={Contact} path="/contact" />
-        <Route component={AdminDashboard} exact path="/admin-dashboard" />
-        <Route component={AdminDashboard} path="/admin-dashboard/products" />
+        <Route path="/contact" component={Contact} />
+        <Route exact path="/admin-dashboard" component={AdminDashboard} />
+        <Route
+          path="/admin-dashboard/products/:category_id"
+          component={AdminProducts}
+        />
         <Route exact path="/menu" component={Menu} />
         <Route
           component={Category}

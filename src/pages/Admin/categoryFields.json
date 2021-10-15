@@ -1,0 +1,18 @@
+{
+  "category_image": {
+    "name": "Image"
+  },
+  "category_title": {
+    "autocomplete": "off",
+    "autofocus": false,
+    "name": "Category name",
+    "placeholder": "try to keep it short",
+    "type": "text"
+  },
+  "category_description": {
+    "autocomplete": "off",
+    "autofocus": false,
+    "name": "Description",
+    "placeholder": "what's this group about?",
+    "type": "text"
+  }}

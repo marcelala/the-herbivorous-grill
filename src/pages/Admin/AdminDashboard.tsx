@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+
 import ProductItem from "../../components/ProductItem";
 import iProduct from "../../types/iProduct";
-import useFetch from "../../scripts/useFetch";
 import { useMenu } from "../../state/MenuStateProvider";
-import { useProducts } from "../../state/ProductStateProvider";
 import iCategory from "../../types/iCategory";
 import CategoryItem from "../../components/CategoryItem";
 import Button from "../../components/Button";
@@ -12,52 +12,25 @@ import { getCollection } from "../../scripts/firebase/fireStore";
 
 export default function AdminDashboard() {
   // @ts-ignore
-  const { menu, dispatch } = useMenu();
-  //const fetch = useFetch("menu");
-  //const { data, loadSuccess, error, loading } = fetch;
-
-  /*const menuPath = "menu";
-  const productsPath = `menu/${selectedId}/products/`;
+  const { menu, productsDispatch } = useMenu();
+  const [loadedProducts, setLoadedProducts] = useState([]);
+  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
   // Methods
-  const fetchData = useCallback(
-    async (path) => {
-      try {
-        // @ts-ignore
-        const productsCollection = await getCollection(path);
-        // @ts-ignore
-        setLoadedCategory(productsCollection);
-        productsDispatch({ type: "SET_PRODUCTS", payload: productsCollection });
-        setStatus(1);
-      } catch {
-        setStatus(2);
-      }
-    },
-    [productsDispatch]
-  );
-  // @ts-ignore
-  useEffect(() => fetchData(path), [fetchData]);
-*/
-  /*const fetchedMenu = useFetch("menu");
-  const [localMenu, setLocalMenu] = useState([]);
-  const [status, setStatus] = useState("");
-  // @ts-ignore
-  useEffect(() => setLocalMenu(fetchedMenu), []);
-  useEffect(() => {
-    //@ts-ignore
-    setStatus("data updated");
-    dispatch({ type: "SET_MENU", payload: localMenu });
-  }, [localMenu]);
-  console.log(menu);
+  const fetchData = useCallback(async (category_id) => {
+    const path = `menu/${category_id}/products/`;
+    try {
+      // @ts-ignore
+      const productsCollection = await getCollection(path);
+      // @ts-ignore
+      setLoadedProducts(productsCollection);
+      productsDispatch({ type: "SET_PRODUCTS", payload: productsCollection });
+      setStatus(1);
+    } catch {
+      setStatus(2);
+    }
+  }, []);
 
-  //const fetchedProducts = useFetch("products");
-  //local state
-  //const [localProducts, setLocalProducts] = useState(fetchedProducts.data);
-  /*
-  useEffect(() => {
-    productsDispatch({ type: "SET_PRODUCTS", payload: localProducts });
-  }, [localProducts]);
-*/
-  //console.log(fetchedProducts.data);
+  //component
   const CategoryList = menu.map((item: iCategory) => (
     <div className="edit-container" key={item.id}>
       <CategoryItem item={item} />
@@ -65,7 +38,10 @@ export default function AdminDashboard() {
         <Button theme={"primary"} onClick={() => console.log("edit category")}>
           Edit category
         </Button>
-        <Link to="admin-dashboard/products" className="btn btn-secondary">
+        <Link
+          to="admin-dashboard/products/:category_id"
+          className="btn btn-secondary"
+        >
           {" "}
           Manage products
         </Link>
@@ -76,7 +52,7 @@ export default function AdminDashboard() {
     <section id="admin-dashboard">
       <div className="text-box-section">
         <h2> Welcome to</h2>
-        <h1>Product Management</h1>
+        <h1>Menu Management</h1>
         <p>
           Here you can view the list the menu's categories. Press the add button
           to create a new one. Or click on each category to edit or delete it.
