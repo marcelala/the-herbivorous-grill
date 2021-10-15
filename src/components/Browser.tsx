@@ -19,7 +19,8 @@ export const Browser = (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route component={Contact} path="/contact" />
-        <Route component={AdminDashboard} path="/admin-dashboard" />
+        <Route component={AdminDashboard} exact path="/admin-dashboard" />
+        <Route component={AdminDashboard} path="/admin-dashboard/products" />
         <Route exact path="/menu" component={Menu} />
         <Route
           component={Category}

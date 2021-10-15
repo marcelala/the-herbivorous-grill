@@ -16,7 +16,7 @@ export default function Category() {
   // @ts-ignore
   const { menu } = useMenu();
   // @ts-ignore
-  const { products, productsDispatch } = useProducts();
+  const { products, productsDispatch } = useMenu();
 
   const url = useParams<PropParams>();
   const history = useHistory();
