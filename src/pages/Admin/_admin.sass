@@ -9,18 +9,28 @@
     .edit-container
       @include cardContentGrid
       width: 20rem
-      height: auto
+      height: 100%
       background-color: transparent
       align-content: center
       border: 0.5rem dashed $primary-light
+      padding: 0
+    .btn-container
+      padding: 0 $space-medium $space-medium
+      width: 100%
+      display: flex
+      flex-direction: column
+      align-items: center
     .btn
       width: 100%
+      margin: $space-x-small 0
     .category-item
       @include cardContentGrid
-      padding: 0
-      height: auto
       background-color: transparent
       border-radius: 0
+      padding-bottom: 0
+      img
+        width: 100%
+        height: 100%
       .text-box
         width: 100%
       .btn-secondary

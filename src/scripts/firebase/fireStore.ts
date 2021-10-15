@@ -16,21 +16,8 @@ import { fireStoreInstance } from "./firebase";
 export async function createDoc(path: string, data: object) {
   const collectionReference = collection(fireStoreInstance, path);
   const documentReference = await addDoc(collectionReference, data);
-
   return documentReference.id;
 }
-
-// Read files
-export async function getCollection(path: string) {
-  const collectionReference = collection(fireStoreInstance, path);
-  const snapshot = await getDocs(collectionReference);
-  const list = snapshot.docs.map((doc) => {
-    return { id: doc.id, ...doc.data() };
-  });
-
-  return list;
-}
-
 // Update file
 export async function updateDocument(
   db: Firestore,
@@ -43,6 +30,15 @@ export async function updateDocument(
   await updateDoc(docReference, data as DocumentData);
 }
 
+// Read files
+export async function getCollection(path: string) {
+  const collectionReference = collection(fireStoreInstance, path);
+  const snapshot = await getDocs(collectionReference);
+  const list = snapshot.docs.map((doc) => {
+    return { id: doc.id, ...doc.data() };
+  });
+  return list;
+}
 // Delete file
 export async function deleteDocument(db: Firestore, path: string, id: string) {
   const docReference = doc(db, path, id);

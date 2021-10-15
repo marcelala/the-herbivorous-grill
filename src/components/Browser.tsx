@@ -1,8 +1,7 @@
 // npm Packages
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 //project files
-import ScrollToTop from "../scripts/ScrollToTop";
-import { ProductStateProvider } from "../state/ProductStateProvider";
+import ScrollToTop from "./ScrollToTop";
 import Navigation from "./Navigation";
 //pages
 import Home from "../pages/Home/Home";
@@ -12,6 +11,7 @@ import Product from "../pages/Product/Product";
 import Contact from "../pages/Contact/Contact";
 import Page404 from "../pages/404/Page404";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
+import AdminProducts from "../pages/Admin/AdminProducts";
 
 export const Browser = (
   <BrowserRouter>
@@ -19,20 +19,22 @@ export const Browser = (
       <Navigation />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route component={Contact} path="/contact" />
-        <Route component={AdminDashboard} path="/admin-dashboard" />
+        <Route path="/contact" component={Contact} />
+        <Route exact path="/admin-dashboard" component={AdminDashboard} />
+        <Route
+          path="/admin-dashboard/products/:category_id"
+          component={AdminProducts}
+        />
         <Route exact path="/menu" component={Menu} />
-        <ProductStateProvider>
-          <Route
-            component={Category}
-            exact
-            path="/menu/:category_title/:category_id"
-          />
-          <Route
-            component={Product}
-            path="/menu/:category_title/:category_id/:id"
-          />
-        </ProductStateProvider>
+        <Route
+          component={Category}
+          exact
+          path="/menu/:category_title/:category_id"
+        />
+        <Route
+          component={Product}
+          path="/menu/:category_title/:category_id/:id"
+        />
         <Route path="*" component={Page404} />
       </Switch>
     </ScrollToTop>

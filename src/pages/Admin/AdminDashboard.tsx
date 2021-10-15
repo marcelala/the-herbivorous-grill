@@ -1,49 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+
 import ProductItem from "../../components/ProductItem";
 import iProduct from "../../types/iProduct";
-import useFetch from "../../scripts/useFetch";
 import { useMenu } from "../../state/MenuStateProvider";
-import { useProducts } from "../../state/ProductStateProvider";
 import iCategory from "../../types/iCategory";
 import CategoryItem from "../../components/CategoryItem";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { getCollection } from "../../scripts/firebase/fireStore";
 
 export default function AdminDashboard() {
   // @ts-ignore
-  const { menu } = useMenu();
-  const fetchedMenu = useFetch("menu");
-  //const fetchedProducts = useFetch("products");
+  const { menu, productsDispatch } = useMenu();
+  const [loadedProducts, setLoadedProducts] = useState([]);
+  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
+  // Methods
+  const fetchData = useCallback(async (category_id) => {
+    const path = `menu/${category_id}/products/`;
+    try {
+      // @ts-ignore
+      const productsCollection = await getCollection(path);
+      // @ts-ignore
+      setLoadedProducts(productsCollection);
+      productsDispatch({ type: "SET_PRODUCTS", payload: productsCollection });
+      setStatus(1);
+    } catch {
+      setStatus(2);
+    }
+  }, []);
 
-  const [localMenu, setLocalMenu] = useState(fetchedMenu);
-  //local state
-  //const [localProducts, setLocalProducts] = useState(fetchedProducts.data);
-  /*
-  useEffect(() => {
-    productsDispatch({ type: "SET_PRODUCTS", payload: localProducts });
-  }, [localProducts]);
-*/
-  console.log(menu);
-  //console.log(fetchedProducts.data);
-
-  const CategoryList = fetchedMenu.map((item: iCategory) => (
+  //component
+  const CategoryList = menu.map((item: iCategory) => (
     <div className="edit-container" key={item.id}>
       <CategoryItem item={item} />
-      <Button theme={"primary"} onClick={() => console.log("edit category")}>
-        Edit category
-      </Button>
-      <Link to="admin-dashboard/products" className="btn btn-secondary">
-        {" "}
-        Manage products
-      </Link>
+      <div className="btn-container">
+        <Button theme={"primary"} onClick={() => console.log("edit category")}>
+          Edit category
+        </Button>
+        <Link
+          to="admin-dashboard/products/:category_id"
+          className="btn btn-secondary"
+        >
+          {" "}
+          Manage products
+        </Link>
+      </div>
     </div>
   ));
-
   return (
     <section id="admin-dashboard">
       <div className="text-box-section">
         <h2> Welcome to</h2>
-        <h1>Product Management</h1>
+        <h1>Menu Management</h1>
         <p>
           Here you can view the list the menu's categories. Press the add button
           to create a new one. Or click on each category to edit or delete it.
@@ -53,7 +62,8 @@ export default function AdminDashboard() {
         {" "}
         Add new category
       </Button>
-      <ul> {CategoryList} </ul>
+      {menu.length === 0 && <p>🚨 Please add a category to start.</p>}
+      {menu.length > 0 && <ul> {CategoryList} </ul>}
     </section>
   );
 }
