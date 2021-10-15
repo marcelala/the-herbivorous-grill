@@ -1,6 +1,8 @@
 export default interface iProduct {
-    productId: string;
-    productTitle: string;
-    productDescription: string;
-    productPrice: number;
+  id: string;
+  product_title: string;
+  product_price: number;
+  image_url: string;
+  product_description: string;
+  ingredients: Array<String>;
 }

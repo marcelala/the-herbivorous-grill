@@ -1,0 +1,16 @@
+#menu
+  @include sectionGrid
+  ul
+    @include cardGrid
+    a
+      width: 18rem
+      height: 30rem
+      max-height: 100vh
+    .category-item
+      @include cardContentGrid
+      align-content: center
+      grid-template-rows: 45% 30% 15%
+      .text-box
+        align-self: start
+      .btn-secondary
+        width: 100%

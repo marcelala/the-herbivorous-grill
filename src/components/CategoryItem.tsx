@@ -1,32 +1,37 @@
-
-// Project files
+//dependencies
+import { useState } from "react";
+// project files
 import iCategory from "../types/iCategory";
-
-// Interface
+import Button from "./Button";
+// interface
 interface iProps {
-    item: iCategory;
-    onDelete: Function;
-    onUpdate: Function;
+  item: iCategory;
 }
 
-export default function CategoryItem({ item, onDelete, onUpdate }: iProps) {
-    const { categoryId, categoryTitle, categoryDescription } = item;
+export default function CategoryItem({ item }: iProps) {
+  const { category_title, category_description, category_image } = item;
+  const [categoryImageUrl] = useState(category_image);
 
-    // Methods
-    function onUpdateButton() {
-        const editedCategory = {
-            categoryId: categoryId,
-            categoryTitle: categoryTitle,
-            categoryDescription: categoryDescription,
-        };
-        onUpdate(categoryId, editedCategory);
-    }
-    return (
-        <li>
-            <button onClick={() => onDelete(categoryId)}>Delete it</button>
-            <button onClick={() => onUpdateButton()}>Update it</button>
-            <b>{categoryTitle}:</b>
-            {categoryDescription}
-        </li>
-    );
+  function onUpdateButton() {
+    const editedCategory = {
+      category_title: category_title,
+      category_description: category_description,
+      category_image: category_image,
+    };
+    //onUpdate(id, editedCategory);
+  }
+  return (
+    <li className="category-item">
+      {/*<button onClick={() => onDelete(id)}>Delete it</button>
+      <button onClick={() => onUpdateButton()}>Update it</button>*/}
+      <img src={categoryImageUrl} alt="delicious foods and beautiful drinks" />
+      <div className="text-box">
+        <h1>{category_title}</h1>
+        <p>{category_description}</p>
+      </div>
+      <div className="btn btn-secondary">
+        <p>View {category_title}</p>
+      </div>
+    </li>
+  );
 }

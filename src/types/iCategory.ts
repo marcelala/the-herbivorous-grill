@@ -1,5 +1,9 @@
+import iProduct from "./iProduct";
+
 export default interface iCategory {
-    categoryId: string;
-    categoryTitle: string;
-    categoryDescription: string;
+  id: string;
+  category_title: string;
+  category_description: string;
+  category_image: string;
+  products: iProduct[];
 }

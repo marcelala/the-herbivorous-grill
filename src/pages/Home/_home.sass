@@ -1,0 +1,57 @@
+#home
+  margin: 0 auto
+  height: 95vh
+  display: grid
+  row-gap: $space-medium
+
+  .hero-background
+    position: absolute
+    height: 95vh
+    width: 100%
+    object-fit: cover
+    opacity: .5
+
+  .brand-container
+    max-width: 100%
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 0
+
+
+  .brand
+    max-width: 100%
+    width: 7rem
+    height: 7rem
+    position: relative
+    display: flex
+    flex-direction: column
+    background-color: transparent
+    border-radius: 100%
+    border: 3px solid $white
+    margin: $space-medium auto
+    padding: 0
+    justify-content: center
+    align-items: center
+
+    img
+      position: relative
+      width: 3rem
+      max-width: 4rem
+      height: auto
+      padding: $space-x-small
+    &-name
+      margin: 0
+      width: 85%
+      height: auto
+      font-weight: 500
+      color: $white
+      text-align: center
+      font-size: .8rem
+  h3
+    position: relative
+    display: inline-block
+    top: 40%
+    text-align: center

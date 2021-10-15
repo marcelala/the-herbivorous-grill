@@ -1,0 +1,136 @@
+@mixin sectionGrid
+  background-color: $backgorund-1
+  display: grid
+  justify-items: center
+  width: 100%
+  height: auto
+  align-items: center
+  max-width: 1500px
+  margin: 0 auto
+  row-gap: $space-medium
+  column-gap: 0
+  overflow: hidden
+  padding-bottom: $space-large
+
+.sectionImg
+  object-fit: cover
+  max-height: 500px
+  position: relative
+  padding: 0
+  margin: 0
+
+.text-box-section
+  width: 100%
+  text-align: left
+  padding: 0 $space-large
+  h1
+    color: $primary
+  h2
+    color: $lighter
+  p
+    color: $white
+
+@mixin cardGrid()
+  display: grid
+  width: 100%
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  row-gap: $space-large
+  column-gap: $space-large
+  padding: $space-large
+  justify-items: center
+  align-items: center
+  align-content: center
+  margin: 0
+
+
+
+@mixin cardContentGrid()
+  display: grid
+  width: 100%
+  height: 100%
+  justify-items: center
+  align-items: center
+  row-gap: $space-small
+  color: $white
+  border-radius: 16px
+  padding: $space-medium $space-large
+  margin: 0
+
+@mixin after($content: "", $pos: absolute)
+  position: relative
+  &::after
+    content: $content
+    position: $pos
+    @content
+
+
+@mixin hover-lift()
+  //box-shadow: 0em 0.3em 0.5em 0em rgba(black, 0.2)
+  transition: transform 250ms ease-in-out
+  @include after()
+    //box-shadow: 0em 0em 1.25em 0em rgba(black, 0.4)
+    transition: transform 250ms ease-in-out
+    opacity: 0
+
+  &:hover,
+  &:focus
+    transform: scale(1.1)
+
+    &::after
+      opacity: 1
+
+@mixin keyframes($animationName)
+  @-webkit-keyframes #{$animationName}
+    @content
+  @-moz-keyframes #{$animationName}
+    @content
+  @-o-keyframes #{$animationName}
+    @content
+  @keyframes #{$animationName}
+    @content
+
+@mixin animate($name, $duration, $iteration, $direction)
+  -webkit-animation-duration: $duration
+  -moz-animation-duration: $duration
+  -o-animation-duration: $duration
+  animation-duration: $duration
+  -webkit-animation-iteration-count: $iteration
+  -moz-animation-iteration-count: $iteration
+  -o-animation-iteration-count: $iteration
+  animation-iteration-count: $iteration
+  -webkit-animation-name: $name
+  -moz-animation-name: $name
+  -o-animation-name: $name
+  animation-name: $name
+  -webkit-animation-direction: $direction
+  -moz-animation-direction: $direction
+  -o-animation-direction: $direction
+  animation-direction: $direction
+@include keyframes(spin)
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@mixin spin
+  @include animate(spin, 0.6s, infinite, linear)
+
+@mixin respond($breakpoint)
+  @if $breakpoint== phablet
+    @media only screen and (min-width: $media-phablet)
+      @content
+
+
+  @if $breakpoint== tablet
+    @media only screen and (min-width: $media-tablet)
+      @content
+
+
+  @if $breakpoint== desktop
+    @media only screen and (min-width: $media-desktop)
+      @content
+
+
+  @if $breakpoint== ultra-wide
+    @media only screen and (min-width: $media-ultra-wide)
+      @content
