@@ -1,9 +1,8 @@
 // NPM packages
 import { FormEvent } from "react";
-
 // Project files
 import Placeholder from "assets/images/heroImg.png";
-import { uploadImage } from "../scripts/uploadImage";
+import { uploadImage } from "../../scripts/uploadImage";
 
 // Interface
 interface iProps {
@@ -27,10 +26,10 @@ export default function InputImage({ name, state, filename }: iProps) {
 
   return (
     <fieldset className="input-image">
-      <b>{name}:</b>
+      <b>Image</b>
       <label className="custom-file-chooser">
-        <input onChange={(event) => onEvent(event, filename)} type="file" />
         <img src={Image} alt="User generated content" />
+        <input onChange={(event) => onEvent(event, filename)} type="file" />
       </label>
     </fieldset>
   );

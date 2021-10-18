@@ -1,34 +1,43 @@
 {
   "image_url": {
-    "name": "Image"
+    "name": "input-image",
+    "label":"Product image"
   },
   "product_title": {
     "autocomplete": "off",
     "autofocus": false,
-    "name": "Product name",
+    "name": "input-title",
     "placeholder": "try to keep it short",
-    "type": "text"
+    "type": "text",
+    "label": "Product title"
+
   },
   "product_description": {
     "autocomplete": "off",
     "autofocus": false,
-    "name": "Description",
+    "name": "input-description",
     "placeholder": "what's special about this food?",
-    "type": "text"
+    "type": "text",
+    "label": "Product description"
+
   },
   "product_price": {
     "autocomplete": "off",
     "autofocus": false,
-    "name": "price",
+    "name": "input-price",
     "placeholder": "in Swedish Kronor ",
-    "type": "number"
+    "type": "number",
+    "label": "Price"
+
   },
   "ingredients": {
     "autocomplete": "off",
     "autofocus": false,
-    "name": "ingredients",
+    "name": "input ingredients",
     "placeholder": "don't forget the allergens",
     "field": "ingredient",
-    "type": "text"
+    "type": "text",
+    "label": "ingredients"
+
   }
 }

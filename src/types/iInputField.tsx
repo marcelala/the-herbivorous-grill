@@ -1,5 +1,6 @@
 export default interface iInputField {
   settings: {
+    label: string;
     autofocus: boolean;
     autocomplete: string;
     placeholder: string;

@@ -1,14 +1,7 @@
 // NPM packages
-// @ts-ignore
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { getFirestore } from "firebase/firestore/";
 // Project files
 import { useMenu } from "./state/MenuStateProvider";
-import {
-  deleteDocument,
-  getCollection,
-  updateDocument,
-} from "./scripts/firebase/fireStore";
+import { getCollection } from "./scripts/firebase/fireStore";
 import { Browser } from "./components/Browser";
 import { useCallback, useEffect, useState } from "react";
 
@@ -18,10 +11,10 @@ function HerbivorousGrill() {
   const { menuDispatch, menu } = useMenu();
   // Properties
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
-  const path = "menu";
 
   // Methods
-  const fetchData = useCallback(async (path) => {
+  const fetchMenuData = useCallback(async () => {
+    const path = "menu";
     try {
       const menuCollection = await getCollection(path);
       menuDispatch({ type: "SET_MENU", payload: menuCollection });
@@ -32,7 +25,8 @@ function HerbivorousGrill() {
   }, []);
 
   // @ts-ignore
-  useEffect(() => fetchData(path), [fetchData]);
+  useEffect(() => fetchMenuData(), [fetchMenuData]);
+
   /*
   // Methods
   function onDelete(id: string) {

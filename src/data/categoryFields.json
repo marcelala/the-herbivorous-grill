@@ -1,18 +1,22 @@
 {
   "category_image": {
-    "name": "Image"
+    "label":"Category image",
+    "name": "input-image"
   },
   "category_title": {
     "autocomplete": "off",
     "autofocus": false,
-    "name": "Category name",
+    "name": "input-title",
     "placeholder": "try to keep it short",
-    "type": "text"
+    "type": "text",
+    "label": "Category title"
+
   },
   "category_description": {
     "autocomplete": "off",
     "autofocus": false,
-    "name": "Description",
+    "name": "input-description",
     "placeholder": "what's this group about?",
-    "type": "text"
+    "type": "text",
+    "label": "Category description"
   }}

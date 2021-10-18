@@ -2,6 +2,8 @@ export default function MenuReducer(state, action) {
   switch (action.type) {
     case "ADD_ITEM":
       return addItem(state, action);
+    case "EDIT_ITEM":
+      return editItem(state, action);
     case "SET_MENU":
       return setMenu(state, action);
     default:
@@ -10,6 +12,13 @@ export default function MenuReducer(state, action) {
 }
 
 function addItem(state, action) {
+  const { payload } = action;
+
+  if (payload !== null) return [...state, payload];
+  return state;
+}
+
+function editItem(state, action) {
   const { payload } = action;
 
   if (payload !== null) return [...state, payload];

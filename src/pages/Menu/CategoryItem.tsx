@@ -1,7 +1,7 @@
 //dependencies
 import { useState } from "react";
 // project files
-import iCategory from "../types/iCategory";
+import iCategory from "../../types/iCategory";
 // interface
 interface iProps {
   item: iCategory;

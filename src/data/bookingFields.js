@@ -1,10 +1,11 @@
-export const formData = {
+export const bookingFields = {
   name: {
     autofocus: false,
     autocomplete: "on",
     placeholder: "Full Name",
     type: "text",
     name: "name",
+    label: "",
   },
   email: {
     autofocus: false,
@@ -12,6 +13,7 @@ export const formData = {
     placeholder: "E-mail",
     type: "email",
     name: "email",
+    label: "",
   },
   phone: {
     autofocus: false,
@@ -19,6 +21,7 @@ export const formData = {
     placeholder: "Phone",
     type: "number",
     name: "phone",
+    label: "",
   },
   nrPeople: {
     autofocus: false,
@@ -26,6 +29,7 @@ export const formData = {
     placeholder: "Nr of people",
     type: "number",
     name: "nrPeople",
+    label: "",
   },
   time: {
     autofocus: false,
@@ -33,6 +37,7 @@ export const formData = {
     placeholder: "Time",
     type: "text",
     name: "string",
+    label: "",
   },
   date: {
     autofocus: false,
@@ -40,5 +45,6 @@ export const formData = {
     placeholder: "Date",
     type: "text",
     name: "string",
+    label: "",
   },
 };
