@@ -3,7 +3,7 @@ import { FormEvent } from "react";
 
 // Project files
 import Placeholder from "assets/images/placeholder.png";
-import { uploadImage } from "../../scripts/uploadImage";
+import { uploadImage } from "../scripts/uploadImage";
 
 // Interface
 interface iProps {

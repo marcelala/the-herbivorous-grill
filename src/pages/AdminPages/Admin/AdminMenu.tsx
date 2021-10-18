@@ -5,8 +5,8 @@ import { useState } from "react";
 import iCategory from "../../../types/iCategory";
 import Button from "components/Button";
 import CategoryItem from "../../../components/CategoryItem";
-import CategoryForm from "./CategoryForm";
-import newCategory from "./newCategory";
+import CategoryForm from "../AdminCategory/CategoryForm";
+import newCategory from "../AdminCategory/newCategory";
 import { useMenu } from "../../../state/MenuStateProvider";
 type PropParams = {
   category_id: string;
@@ -15,7 +15,7 @@ type iProps = {
   category: iCategory;
   setCategory: Function;
 };
-export default function EditCategory() {
+export default function AdminMenu() {
   // @ts-ignore
   const { menu } = useMenu();
   const { category_id } = useParams<PropParams>();

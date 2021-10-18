@@ -15,7 +15,7 @@ type PropParams = {
   category_id: string;
   category_title: string;
 };
-export default function AdminProducts() {
+export default function AdminCategory() {
   // @ts-ignore
   const { products, productsDispatch } = useMenu();
   const { category_id, category_title } = useParams<PropParams>();

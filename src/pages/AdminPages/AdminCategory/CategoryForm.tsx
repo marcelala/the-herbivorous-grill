@@ -2,7 +2,7 @@ import React, { useState, FormEvent, Props } from "react";
 import categoryFields from "../../../data/categoryFields.json";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
-import InputImage from "../InputImage";
+import InputImage from "../../../components/InputImage";
 import { useParams } from "react-router-dom";
 import { useMenu } from "../../../state/MenuStateProvider";
 import {
@@ -42,11 +42,11 @@ export default function CategoryForm({ item, id }: iProps) {
     };
     if (id !== "") {
       await updateDocument(path, id, editedCategory);
-      onUpdate(editedCategory);
+      await onUpdate(editedCategory);
     } else {
       await createDocument(path, editedCategory);
       console.log("updated category", editedCategory);
-      onAdd(editedCategory);
+      await onAdd(editedCategory);
     }
   }
 

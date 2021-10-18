@@ -7,7 +7,6 @@ import { useCallback } from "react";
 
 export const imagesBucketRef = ref(cloudStorageReference, `gs://images/`);
 
-/*
 export const getCloudImage = useCallback(async (filename) => {
   try {
     const imageRef = ref(imagesBucketRef, filename);
@@ -16,13 +15,7 @@ export const getCloudImage = useCallback(async (filename) => {
   } catch {
     console.log("problem loading pictures");
   }
-}, []);*/
-
-/*export async function getCloudImage(fileName: string) {
-  const imageRef = ref(imagesBucketRef, fileName);
-  const imageUrl = await getDownloadURL(imageRef);
-  return imageUrl;
-}*/
+}, []);
 
 export async function uploadFile(fileName: string, file: any) {
   const fileReference = ref(imagesBucketRef, fileName);

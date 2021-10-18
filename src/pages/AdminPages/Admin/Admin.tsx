@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { useMenu } from "../../state/MenuStateProvider";
-import iProduct from "../../types/iProduct";
-import EditCategory from "./AdminCategory/EditCategory";
-import Button from "../../components/Button";
-import CategoryForm from "./AdminCategory/CategoryForm";
-import newCategory from "./AdminCategory/newCategory";
+import { useMenu } from "../../../state/MenuStateProvider";
+import AdminMenu from "./AdminMenu";
+import Button from "../../../components/Button";
+import CategoryForm from "../AdminCategory/CategoryForm";
+import newCategory from "../AdminCategory/newCategory";
 
-export default function AdminDashboard() {
+export default function Admin() {
   // @ts-ignore
-  const { menu, productsDispatch, products } = useMenu();
+  const { menu } = useMenu();
   // const [loadedProducts, setLoadedProducts] = useState([]);
   const [addItem, setAddItem] = useState(false);
   // // Methods
@@ -49,7 +48,7 @@ export default function AdminDashboard() {
       </Button>
       {addItem && <CategoryForm item={newCategory} id={newCategory.id} />}
       {menu.length === 0 && <p>🚨 Please add a category to start.</p>}
-      <EditCategory />
+      <AdminMenu />
     </section>
   );
 }
