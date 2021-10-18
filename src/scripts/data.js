@@ -1,14 +1,3 @@
-// NPM packages
-import {
-  Firestore,
-  collection,
-  getDocs,
-  addDoc,
-  doc,
-  deleteDoc,
-  updateDoc,
-  DocumentData,
-} from "firebase/firestore/lite";
 import HerbivorousGrill from "../App";
 import firebase from "firebase/compat";
 

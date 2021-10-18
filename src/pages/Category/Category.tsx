@@ -14,7 +14,7 @@ type PropParams = {
 
 export default function Category() {
   // @ts-ignore
-  const { menu, products, productsDispatch } = useMenu();
+  const { menu, productsDispatch } = useMenu();
   const { category_id, category_title } = useParams<PropParams>();
   const history = useHistory();
   //local state

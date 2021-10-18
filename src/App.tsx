@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from "react";
 function HerbivorousGrill() {
   // Global state
   // @ts-ignore
-  const { menuDispatch, menu } = useMenu();
+  const { menuDispatch } = useMenu();
   // Properties
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
 
@@ -27,16 +27,6 @@ function HerbivorousGrill() {
   // @ts-ignore
   useEffect(() => fetchMenuData(), [fetchMenuData]);
 
-  /*
-  // Methods
-  function onDelete(id: string) {
-    deleteDocument(database, "menu", id);
-  }
-
-  function onUpdate(id: string, editedCategory: object) {
-    updateDocument(database, "menu", id, editedCategory);
-  }
-*/
   return (
     <div className="App">
       {status === 0 && <p>Loading ⏱</p>}

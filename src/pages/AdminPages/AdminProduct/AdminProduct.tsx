@@ -1,4 +1,4 @@
-import { useHistory, useParams, Link } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useMenu } from "../../../state/MenuStateProvider";
 import iProduct from "../../../types/iProduct";
 import React from "react";

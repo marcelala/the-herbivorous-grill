@@ -12,9 +12,9 @@ import Category from "../pages/Category/Category";
 import Product from "../pages/Product/Product";
 import Contact from "../pages/Contact/Contact";
 import Page404 from "../pages/404/Page404";
-import AdminDashboard from "../pages/Admin/AdminDashboard";
-import AdminProducts from "../pages/Admin/AdminProduct/AdminProducts";
-import AdminProduct from "../pages/Admin/AdminProduct/AdminProduct";
+import Admin from "../pages/AdminPages/Admin/Admin";
+import AdminCategory from "../pages/AdminPages/AdminProduct/AdminCategory";
+import AdminProduct from "../pages/AdminPages/AdminProduct/AdminProduct";
 
 export const Browser = (
   <BrowserRouter>
@@ -23,11 +23,11 @@ export const Browser = (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/contact" component={Contact} />
-        <Route exact path="/admin" component={AdminDashboard} />
+        <Route exact path="/admin" component={Admin} />
         <Route
           path="/admin/:category_title/:category_id/"
           exact
-          component={AdminProducts}
+          component={AdminCategory}
         />
         <Route
           path="/admin/:category_title/:category_id/:id"
