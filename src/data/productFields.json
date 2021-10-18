@@ -28,7 +28,6 @@
     "placeholder": "in Swedish Kronor ",
     "type": "number",
     "label": "Price"
-
   },
   "ingredients": {
     "autocomplete": "off",
@@ -38,6 +37,5 @@
     "field": "ingredient",
     "type": "text",
     "label": "ingredients"
-
   }
 }

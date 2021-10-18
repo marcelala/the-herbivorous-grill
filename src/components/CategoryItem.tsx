@@ -1,7 +1,7 @@
 //dependencies
 import { useState } from "react";
 // project files
-import iCategory from "../../types/iCategory";
+import iCategory from "../types/iCategory";
 // interface
 interface iProps {
   item: iCategory;
@@ -13,8 +13,6 @@ export default function CategoryItem({ item }: iProps) {
 
   return (
     <li className="category-item">
-      {/*<button onClick={() => onDelete(id)}>Delete it</button>
-      <button onClick={() => onUpdateButton()}>Update it</button>*/}
       <img src={categoryImageUrl} alt="delicious foods and beautiful drinks" />
       <div className="text-box">
         <h1>{category_title}</h1>

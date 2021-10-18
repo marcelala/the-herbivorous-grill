@@ -4,45 +4,51 @@ import { useState } from "react";
 //project files
 import iCategory from "../../../types/iCategory";
 import Button from "components/Button";
-import CategoryItem from "../../Menu/CategoryItem";
+import CategoryItem from "../../../components/CategoryItem";
 import CategoryForm from "./CategoryForm";
 import newCategory from "./newCategory";
 import { useMenu } from "../../../state/MenuStateProvider";
 type PropParams = {
-  id: string;
+  category_id: string;
 };
-
+type iProps = {
+  category: iCategory;
+  setCategory: Function;
+};
 export default function EditCategory() {
   // @ts-ignore
   const { menu } = useMenu();
-  const { id } = useParams<PropParams>();
-
+  const { category_id } = useParams<PropParams>();
+  const category = getCategory(category_id);
   const [editMode, setEditMode] = useState(false);
-
-  const selectedCategory = getCategory(id);
-
+  function getCategory(category_id: string) {
+    const existingCategory = menu.find(
+      (item: iCategory) => item.id === category_id
+    );
+    if (existingCategory === undefined) return newCategory;
+    else return existingCategory;
+  }
+  //
   const CategoryList = menu.map((item: iCategory) => (
     <div className="edit-container" key={item.id}>
       <CategoryItem item={item} />
-      {editMode && (
-        <CategoryForm item={selectedCategory} id={selectedCategory.id} />
-      )}
+      {editMode && <CategoryForm item={item} id={item.id} />}
       <div className="btn-container">
-        <Button theme={"primary"} onClick={(event: any) => setEditMode(true)}>
+        <Button
+          theme={"primary"}
+          onClick={(event: any) => setEditMode(!editMode)}
+        >
           Edit category
         </Button>
-        <Link to="/products/:category_id" className="btn btn-secondary">
+        <Link
+          to={`/admin/${item.category_title}/${item.id}/`}
+          className="btn btn-secondary"
+        >
           Manage products
         </Link>
       </div>
     </div>
   ));
-
-  function getCategory(category_id: string) {
-    const oldCategory = menu.find((item: iCategory) => item.id === category_id);
-    if (oldCategory === undefined) return newCategory;
-    else return oldCategory;
-  }
 
   return (
     <section id="admin-dashboard">
