@@ -1,4 +1,4 @@
-import iProduct from "../../types/iProduct";
+import iProduct from "../../../types/iProduct";
 
 const newProduct: iProduct = {
   id: "",

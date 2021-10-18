@@ -1,8 +1,8 @@
 // Project files
-import { uploadFile } from "scripts/cloudStorage";
 import dataURLToFile from "./dataURLToFile";
 import readImage from "./readImage";
 import resizeImage from "./resizeImage";
+import { uploadFile } from "../firebase/cloudStorage";
 
 export async function uploadImage(event, filename) {
   const file = event.target.files[0];

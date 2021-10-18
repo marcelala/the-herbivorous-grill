@@ -9,6 +9,7 @@ import {
   updateDoc,
   DocumentData,
 } from "firebase/firestore/lite";
+import { collectionGroup, query, where } from "firebase/firestore";
 //project files
 import { fireStoreInstance } from "./firebase";
 
@@ -39,6 +40,19 @@ export async function getCollection(path: string) {
   });
   return list;
 }
+
+export async function getSubCollection(path: string) {
+  const subCollection = query(
+    collectionGroup(fireStoreInstance, path),
+    where("product_price", ">", "0")
+  );
+  const snapshot = await getDocs(subCollection);
+  const list = snapshot.docs.map((doc) => {
+    return { id: doc.id, ...doc.data() };
+  });
+  return list;
+}
+
 // Delete file
 export async function deleteDocument(db: Firestore, path: string, id: string) {
   const docReference = doc(db, path, id);

@@ -26,3 +26,15 @@ yarn-error.log*
 /firestore.indexes.json
 /firebase.json
 /.firebaserc
+/functions/.eslintrc.js
+/.idea/.gitignore
+/functions/.gitignore
+/.firebase/hosting.YnVpbGQ.cache
+/.idea/modules.xml
+/.idea/prettier.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/the-herbivorous-grill.iml
+/functions/tsconfig.dev.json
+/.idea/vcs.xml
+/.idea/watcherTasks.xml
+/.idea/webResources.xml

@@ -1,5 +1,5 @@
-import iCategory from "../../types/iCategory";
-import iProduct from "../../types/iProduct";
+import iCategory from "../../../types/iCategory";
+import iProduct from "../../../types/iProduct";
 
 const newCategory: iCategory = {
   id: "",

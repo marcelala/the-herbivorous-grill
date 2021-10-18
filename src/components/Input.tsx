@@ -2,11 +2,12 @@
 import iInputField from "../types/iInputField";
 
 export default function Input({ hook, settings }: iInputField) {
-  const { autofocus, autocomplete, name, placeholder, type } = settings;
+  const { autofocus, autocomplete, name, placeholder, type, label } = settings;
   const [state, setState] = hook;
 
   return (
     <label>
+      {label}
       <input
         autoFocus={autofocus}
         autoComplete={autocomplete}
@@ -16,6 +17,7 @@ export default function Input({ hook, settings }: iInputField) {
         type={type}
         value={state}
         required
+        maxLength={80}
       />
     </label>
   );

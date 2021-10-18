@@ -1,9 +1,9 @@
 import React, { useState, FormEvent } from "react";
-import productFields from "./productFields.json";
-import InputImage from "../../components/InputImage";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import iProduct from "../../types/iProduct";
+import productFields from "../../../data/productFields.json";
+import InputImage from "../InputImage";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
+import iProduct from "../../../types/iProduct";
 // Interface
 interface iProps {
   product: iProduct;

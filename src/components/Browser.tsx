@@ -5,7 +5,6 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-
 ///pages
 import Home from "../pages/Home/Home";
 import Menu from "../pages/Menu/Menu";
@@ -14,7 +13,7 @@ import Product from "../pages/Product/Product";
 import Contact from "../pages/Contact/Contact";
 import Page404 from "../pages/404/Page404";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
-import AdminProducts from "../pages/Admin/AdminProducts";
+import AdminProducts from "../pages/Admin/AdminProduct/AdminProducts";
 
 export const Browser = (
   <BrowserRouter>
@@ -24,10 +23,7 @@ export const Browser = (
         <Route exact path="/" component={Home} />
         <Route path="/contact" component={Contact} />
         <Route exact path="/admin-dashboard" component={AdminDashboard} />
-        <Route
-          path="/admin-dashboard/products/:category_id"
-          component={AdminProducts}
-        />
+        <Route path="/admin-dashboard/products/" component={AdminProducts} />
         <Route exact path="/menu" component={Menu} />
         <Route
           component={Category}

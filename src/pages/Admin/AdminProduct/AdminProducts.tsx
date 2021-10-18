@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 
-import ProductItem from "../../components/ProductItem";
-import iProduct from "../../types/iProduct";
-import { useMenu } from "../../state/MenuStateProvider";
-import iCategory from "../../types/iCategory";
-import CategoryItem from "../../components/CategoryItem";
-import Button from "../../components/Button";
+import ProductItem from "../../../components/ProductItem";
+import iProduct from "../../../types/iProduct";
+import { useMenu } from "../../../state/MenuStateProvider";
+import iCategory from "../../../types/iCategory";
+import CategoryItem from "../../Menu/CategoryItem";
+import Button from "../../../components/Button";
 import { Link } from "react-router-dom";
-import { getCollection } from "../../scripts/firebase/fireStore";
+import { getCollection } from "../../../scripts/firebase/fireStore";
 
 export default function AdminProducts() {
   // @ts-ignore
