@@ -4,5 +4,5 @@ export default interface iProduct {
   product_price: number;
   image_url: string;
   product_description: string;
-  ingredients: Array<String>;
+  ingredients: string[];
 }

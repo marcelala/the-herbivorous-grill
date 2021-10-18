@@ -2,9 +2,10 @@ import { useHistory, useParams, Link } from "react-router-dom";
 import { useMenu } from "../../../state/MenuStateProvider";
 import iProduct from "../../../types/iProduct";
 import React from "react";
-import ProductItem from "../../../components/ProductItem";
 import Button from "../../../components/Button";
 import ProductForm from "./ProductForm";
+import newProduct from "./newProduct";
+import { ErrorComponent } from "../../../components/Error";
 // Interface
 type PropParams = {
   id: string;
@@ -16,28 +17,19 @@ export default function AdminProduct() {
   const { products } = useMenu();
   const { id, category_title, category_id } = useParams<PropParams>();
   const history = useHistory();
-  const product = products.find((item: iProduct) => item.id === id);
-  const { product_description, ingredients } = product;
-  // Components
-  const ErrorComponent = (
-    <p>
-      Oops, something went wrong. Please return to the home page and try again{" "}
-      <Link to="/">Go home</Link>
-    </p>
-  );
-  if (product === undefined) return ErrorComponent;
+  const product = getProduct(id);
 
-  function ingredientsList() {
-    if (ingredients === undefined) return <p>No ingredient list to show</p>;
-    else return ingredients.map((item: string) => <li>{item}</li>);
+  if (product === undefined) return ErrorComponent;
+  function getProduct(id: string) {
+    const existingProduct = products.find((item: iProduct) => item.id === id);
+    if (existingProduct === undefined) return newProduct;
+    else return existingProduct;
   }
+
   return (
-    <section id="product" className={"admin-product"}>
-      <ProductForm product={product} id={product.id} />
+    <section id="admin-product">
       <h1>{category_title}</h1>
-      <ProductItem item={product} />
-      <p>{product_description}</p>
-      <ul>{ingredientsList()}</ul>
+      <ProductForm product={product} category_id={category_id} />
       <div>
         <Button onClick={() => history.goBack()} theme={"primary"}>
           Go back to {category_title}

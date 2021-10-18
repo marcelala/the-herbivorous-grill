@@ -24,10 +24,10 @@
       width: 100%
       margin: $space-x-small 0
     .category-item
-      @include cardContentGrid
       background-color: transparent
       border-radius: 0
       padding-bottom: 0
+      @include cardContentGrid
       img
         width: 100%
         height: 100%
@@ -45,7 +45,6 @@
   align-items: end
   width: 100%
   .edit-container
-    @include cardContentGrid
     width: 20rem
     height: 100%
     background-color: $backgorund-3
@@ -75,6 +74,22 @@
       font-weight: 600
       text-transform: capitalize
 
-
-
+#admin-product
+  width: 100%
+  height: auto
+  min-height: 95vh
+  display: grid
+  justify-items: center
+  form
+    display: grid
+    justify-items: center
+    width: 20rem
+    height: auto
+    background-color: $backgorund-3
+    align-content: center
+    border: 0.3rem dashed $primary-light
+    padding: 0
+  img
+    width: 100%
+    height: 100%
 

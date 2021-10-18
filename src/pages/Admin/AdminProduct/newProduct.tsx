@@ -6,7 +6,7 @@ const newProduct: iProduct = {
   product_description: "",
   product_price: 0,
   image_url: "",
-  ingredients: Array<String>(),
+  ingredients: [""],
 };
 
 export default newProduct;

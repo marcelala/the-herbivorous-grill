@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMenu } from "../../state/MenuStateProvider";
 import menuImg from "../../assets/images/menuImg.png";
 import iCategory from "../../types/iCategory";
-import CategoryItem from "./CategoryItem";
+import CategoryItem from "../../components/CategoryItem";
 export default function Menu() {
   // @ts-ignore
   const { menu } = useMenu();

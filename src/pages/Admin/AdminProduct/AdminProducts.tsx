@@ -75,7 +75,9 @@ export default function AdminProducts() {
         {" "}
         Add new category
       </Button>
-      {addItem && <ProductForm product={newProduct} id={newProduct.id} />}
+      {addItem && (
+        <ProductForm product={newProduct} category_id={category_id} />
+      )}
       <h1>{category_title}</h1>
       <ul className={"admin-list"}>{ProductsList()}</ul>
       <div>
