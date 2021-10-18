@@ -7,63 +7,59 @@ import iProduct from "../../../types/iProduct";
 // Interface
 interface iProps {
   product: iProduct;
-  settings: {
-    autocomplete: string;
-    autofocus: false;
-    name: string;
-    placeholder: string;
-    type: string;
-  };
+  id: string;
 }
 
-export default function ProductForm({ settings, product }: iProps) {
-  const { id, product_price, product_title, product_description, image_url } =
-    product;
-
-  const { autocomplete, autofocus, name, placeholder, type } = settings;
+export default function ProductForm({ product, id }: iProps) {
+  const {
+    product_price,
+    product_title,
+    product_description,
+    image_url,
+    ingredients,
+  } = product;
 
   // Local state
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageURL, setImageURL] = useState("");
-  const [price, setPrice] = useState("");
-  const [ingredients, setIngredients] = useState("");
+  const [title, setTitle] = useState(product_title);
+  const [description, setDescription] = useState(product_description);
+  const [imageURL, setImageURL] = useState(image_url);
+  const [price, setPrice] = useState(product_price.toString());
+  const [ingredientsList, setIngredients] = useState(ingredients.toString());
 
   // Methods
   function onAddItem(event: FormEvent) {
     event.preventDefault();
-
-    return (
-      <li className="product-item">
-        <form onSubmit={(event) => onAddItem(event)}>
-          <InputImage
-            state={[imageURL, setImageURL]}
-            name={"image"}
-            filename={product.image_url}
-          />
-          <div className="text-box">
-            <Input
-              hook={[title, setTitle]}
-              settings={productFields.product_title}
-            />
-            <Input
-              hook={[description, setDescription]}
-              settings={productFields.product_description}
-            />
-            <Input
-              hook={[price, setPrice]}
-              settings={productFields.product_price}
-            />
-          </div>
-          <Input
-            hook={[ingredients, setIngredients]}
-            settings={productFields.ingredients}
-          />
-          <Button theme={"primary"} onClick={() => alert("Form submitted")}>
-            Add new category
-          </Button>
-        </form>
-      </li>
-    );
   }
+  return (
+    <li className="product-item">
+      <form onSubmit={(event) => onAddItem(event)}>
+        <InputImage
+          state={[imageURL, setImageURL]}
+          name={"image"}
+          filename={image_url}
+        />
+        <div className="text-box">
+          <Input
+            hook={[title, setTitle]}
+            settings={productFields.product_title}
+          />
+          <Input
+            hook={[description, setDescription]}
+            settings={productFields.product_description}
+          />
+          <Input
+            hook={[price, setPrice]}
+            settings={productFields.product_price}
+          />
+        </div>
+        <Input
+          hook={[ingredientsList, setIngredients]}
+          settings={productFields.ingredients}
+        />
+        <Button theme={"primary"} onClick={() => alert("Form submitted")}>
+          Add new category
+        </Button>
+      </form>
+    </li>
+  );
 }

@@ -765,7 +765,7 @@ footer .icons p {
   height: 100%;
   background-color: transparent;
   align-content: center;
-  border: 0.5rem dashed rgba(234, 124, 105, 0.2);
+  border: 0.3rem dashed rgba(234, 124, 105, 0.2);
   padding: 0;
 }
 #admin-dashboard ul .btn-container {
@@ -803,6 +803,101 @@ footer .icons p {
 }
 #admin-dashboard ul .category-item .btn-secondary {
   display: none;
+}
+
+.admin-products {
+  background-color: #2D303E;
+  background-color: #252836;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  row-gap: 1.5rem;
+  column-gap: 0;
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
+
+.admin-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 2rem;
+  column-gap: 2rem;
+  padding: 2rem;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  align-items: end;
+  width: 100%;
+}
+.admin-list .edit-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  row-gap: 1rem;
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 0;
+  width: 20rem;
+  height: 100%;
+  background-color: #2D303E;
+  align-content: center;
+  border: 0.3rem dashed rgba(234, 124, 105, 0.2);
+  padding: 0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  row-gap: 1rem;
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 0;
+}
+.admin-list .edit-container .product-item {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  row-gap: 1rem;
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 0;
+}
+.admin-list .edit-container .product-item .card {
+  display: none;
+}
+.admin-list .edit-container img {
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+.admin-list .edit-container .text-box {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  row-gap: 1rem;
+  text-align: center;
+}
+.admin-list .edit-container .btn-secondary {
+  display: none;
+}
+.admin-list .edit-container h2 {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 main {

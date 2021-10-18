@@ -31,7 +31,10 @@ export default function EditCategory() {
         <Button theme={"primary"} onClick={(event: any) => setEditMode(true)}>
           Edit category
         </Button>
-        <Link to="/products/:category_id" className="btn btn-secondary">
+        <Link
+          to={`/admin/${item.category_title}/${item.id}/`}
+          className="btn btn-secondary"
+        >
           Manage products
         </Link>
       </div>
