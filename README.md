@@ -8,7 +8,7 @@
 ## Overview
 
 Welcome to The Herbivorous Grill, an assignment from Novare Potencial Academy. The goal of this project was to fetch data from a
-a No-SQL database, display items and allow for authorized users to edit the data. Additionally, Typescript was used pn this project.
+a No-SQL database, display items and allow for authorized users to edit the data. Additionally, Typescript was used on this project.
 Click [here](https://herbivorousgrill.web.app/)
 to visit.
 
@@ -134,7 +134,7 @@ npm run build
 - [i18next](https://www.i18next.com/) for internationalization.
 - [Worker-loader](https://www.npmjs.com/package/worker-loader) enables the transpilation of mapbox in react
   applications.
-- [Typesdcreipt](https://www.npmjs.com/package/typescript) enables the transpilation of mapbox in react
+- [Typescript](https://www.npmjs.com/package/typescript) enables the transpilation of mapbox in react
   applications.
 
 <br/>
