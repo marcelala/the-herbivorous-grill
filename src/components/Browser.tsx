@@ -13,7 +13,7 @@ import Product from "../pages/Product/Product";
 import Contact from "../pages/Contact/Contact";
 import Page404 from "../pages/404/Page404";
 import Admin from "../pages/AdminPages/Admin/Admin";
-import AdminCategory from "../pages/AdminPages/AdminProduct/AdminCategory";
+import AdminCategory from "../pages/AdminPages/AdminCategory/AdminCategory";
 import AdminProduct from "../pages/AdminPages/AdminProduct/AdminProduct";
 
 export const Browser = (

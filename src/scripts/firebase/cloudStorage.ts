@@ -1,21 +1,25 @@
 // NPM package
-import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 // Project files
 import { cloudStorageReference } from "scripts/firebase/firebase";
-import { useCallback } from "react";
 
 export const imagesBucketRef = ref(cloudStorageReference, `gs://images/`);
 
-export const getCloudImage = useCallback(async (filename) => {
+export async function getCloudImage(filename: string) {
+  const result = { isWorking: false, payload: "" };
   try {
     const imageRef = ref(imagesBucketRef, filename);
-    const imageUrl = await getDownloadURL(imageRef);
-    return imageUrl;
-  } catch {
+    const imageUrl: string = await getDownloadURL(imageRef);
+    result.payload = imageUrl;
+    result.isWorking = true;
+  } catch (error) {
     console.log("problem loading pictures");
+    // @ts-ignore
+    result.payload = error.code;
   }
-}, []);
+  return result;
+}
 
 export async function uploadFile(fileName: string, file: any) {
   const fileReference = ref(imagesBucketRef, fileName);

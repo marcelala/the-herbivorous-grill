@@ -8,8 +8,8 @@ import { useMenu } from "../../../state/MenuStateProvider";
 import iProduct from "../../../types/iProduct";
 import ProductItem from "../../../components/ProductItem";
 import Button from "../../../components/Button";
-import ProductForm from "./ProductForm";
-import newProduct from "./newProduct";
+import ProductForm from "../AdminProduct/ProductForm";
+import newProduct from "../AdminProduct/newProduct";
 
 type PropParams = {
   category_id: string;
