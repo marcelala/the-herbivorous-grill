@@ -8,6 +8,8 @@ import {
   updateDoc,
   DocumentData,
 } from "firebase/firestore/lite";
+
+// Why query in such a short exercise?
 import { collectionGroup, query, where } from "firebase/firestore";
 //project files
 import { fireStoreInstance } from "./firebase";

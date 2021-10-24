@@ -19,7 +19,7 @@ export default function AdminMenu() {
   // @ts-ignore
   const { menu } = useMenu();
   const { category_id } = useParams<PropParams>();
-  const category = getCategory(category_id);
+  const category = getCategory(category_id); // unused code -1
   const [editMode, setEditMode] = useState(false);
   function getCategory(category_id: string) {
     const existingCategory = menu.find(
@@ -34,6 +34,7 @@ export default function AdminMenu() {
       <CategoryItem item={item} />
       {editMode && <CategoryForm item={item} id={item.id} />}
       <div className="btn-container">
+        {/* We saw later on the week the ReactForm event to avoid any (this does not reduce points, but take into consideration for next project) */}
         <Button
           theme={"primary"}
           onClick={(event: any) => setEditMode(!editMode)}

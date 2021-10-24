@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import nuts from "../../assets/images/nuts.png";
+
+// Good feature to add!
 export default function Page404() {
   //phrase  from http://www.free404.com
   //nuts from unsplash

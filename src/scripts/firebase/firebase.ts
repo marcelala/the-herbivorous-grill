@@ -13,10 +13,10 @@ const firebaseConfiguration = {
   appId: "1:594243375518:web:56177bdaafe25b7e20068f",
 };
 
+// If only fireStoreInstance, cloudStorageReference and firebaseAuthInstance uses the firebaseInstance,
+// then you don't need to make this one "public" by adding the "export"
 export const firebaseInstance = initializeApp(firebaseConfiguration);
 
 export const fireStoreInstance = getFirestore(firebaseInstance);
-
 export const cloudStorageReference = getStorage(firebaseInstance);
-
 export const firebaseAuthInstance = getAuth(firebaseInstance);

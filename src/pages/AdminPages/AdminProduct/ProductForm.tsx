@@ -39,6 +39,7 @@ export default function ProductForm({ product, category_id }: iProps) {
     event.preventDefault();
   }
 
+  // No usused code (or at least looks like is not called) -1
   async function onSave() {
     const ingredientsArray =
       ingredients.length > 0
@@ -77,6 +78,7 @@ export default function ProductForm({ product, category_id }: iProps) {
           hook={[ingredientsList, setIngredients]}
           settings={productFields.ingredients}
         />{" "}
+        {/* This button is just calling an alert instead of on Save */}
         <Button theme={"primary"} onClick={() => alert("Form submitted")}>
           Save changes
         </Button>

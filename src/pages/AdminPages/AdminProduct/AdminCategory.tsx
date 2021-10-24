@@ -20,12 +20,14 @@ export default function AdminCategory() {
   const { products, productsDispatch } = useMenu();
   const { category_id, category_title } = useParams<PropParams>();
   const history = useHistory();
+
   //local state
   const [loadedProducts, setLoadedProducts] = useState([]);
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
   const [addItem, setAddItem] = useState(false);
   // Properties
   const path = `menu/${category_id}/products/`;
+
   // Methods
   const fetchData = useCallback(async (path) => {
     try {
@@ -42,6 +44,7 @@ export default function AdminCategory() {
   // @ts-ignore
   useEffect(() => fetchData(path), [fetchData]);
 
+  // Function length, this should be outside to make the component smaller
   //component
   const ErrorComponent = (
     <p>
@@ -50,6 +53,7 @@ export default function AdminCategory() {
     </p>
   );
 
+  // Function length, this should be outside to make the component smaller
   //methods
   function ProductsList() {
     const list = products.map((item: iProduct) => (
@@ -61,6 +65,7 @@ export default function AdminCategory() {
     if (list === undefined) return ErrorComponent;
     else return list;
   }
+
   return (
     <section id="category " className={"admin-products"}>
       <div className="text-box-section">

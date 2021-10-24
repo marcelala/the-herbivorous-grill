@@ -23,12 +23,12 @@ export default function CategoryForm({ item, id }: iProps) {
   const [description, setDescription] = useState(category_description);
   const [imageURL, setImageURL] = useState(category_image);
 
-  // @ts-ignore
-  async function onAdd(item) {
+  // You can add iCategory to fix this TS error, it was simple. Is on the Context API and reducer where TS becomes hard to code.
+  async function onAdd(item: iCategory) {
     menuDispatch({ type: "ADD_ITEM", payload: item });
   }
-  // @ts-ignore
-  async function onUpdate(item) {
+
+  async function onUpdate(item: iCategory) {
     menuDispatch({ type: "EDIT_ITEM", payload: item });
   }
   // Methods

@@ -8,8 +8,10 @@ import newCategory from "../AdminCategory/newCategory";
 export default function Admin() {
   // @ts-ignore
   const { menu } = useMenu();
-  // const [loadedProducts, setLoadedProducts] = useState([]);
+  // const [loadedProducts, setLoadedProducts] = useState([]); // No commented code in production -1
   const [addItem, setAddItem] = useState(false);
+
+  // No commented code in production -1
   // // Methods
   /*const fetchProductsData = useCallback(async () => {
     const path = "menu/any/products";
@@ -42,6 +44,7 @@ export default function Admin() {
           to create a new one. Or click on each category to edit it.
         </p>
       </div>
+      {/* There should no be empty space (curly brace "") to add space, use margin or padding in CSS */}
       <Button theme={"primary"} onClick={() => setAddItem(!addItem)}>
         {" "}
         Add new category
